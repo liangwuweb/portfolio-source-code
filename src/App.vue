@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <background></background>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import Background from "./components/Background";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
-  }
+    FontAwesomeIcon,
+    Background,
+  },
 };
 </script>
 
@@ -22,7 +23,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
 }
 </style>
