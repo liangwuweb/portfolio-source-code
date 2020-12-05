@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
+import "animate.css/animate.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
