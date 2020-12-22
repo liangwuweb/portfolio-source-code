@@ -1,6 +1,13 @@
 <template>
-  <div class="outer-wrap">
-    <navigation :menuOpen="menuOpen"></navigation>
+  <div class="background-wrap">
+    <transition
+      name="page-shift"
+      enter-active-class="animate__animated animate__slideInLeft animate__faster"
+      leave-active-class="animate__animated animate__slideOutRight animate__faster"
+    >
+      <div v-if="show" class="overlay"></div>
+    </transition>
+    <navigation :menuOpen="menuOpen" @pageShift="pageShift"></navigation>
     <div class="navbar" :class="{ 'change-color': menuOpen }">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -100,6 +107,9 @@
           />
         </g>
       </svg>
+      <h6 class="font-weight-bold my-0" style="color: #3ecc28">
+        {{ navbarHeader }}
+      </h6>
       <div
         class="nav-icon"
         :class="{ open: menuOpen }"
@@ -113,13 +123,8 @@
     </div>
 
     <div class="main">
-      <div class="wrap d-flex align-items-center justify-content-center">
-        <h4 class="font-weight-bold">
-          Some thing to <span style="color: #3ecc28">say</span>
-        </h4>
-      </div>
       <div class="container-fluid">
-        <div class="social-icon">
+        <div class="social-icon" :class="positionObj">
           <font-awesome-icon
             :icon="{ prefix: 'fab', iconName: 'facebook-f' }"
           />
@@ -138,9 +143,11 @@ import Navigation from "./Navigation";
 
 export default {
   name: "background",
+  props: ["navbarHeader"],
   data: function () {
     return {
-      menuOpen: true,
+      menuOpen: false,
+      show: false,
       changeColor: "change-color",
     };
   },
@@ -148,15 +155,47 @@ export default {
     FontAwesomeIcon,
     Navigation,
   },
+  computed: {
+    positionObj: function () {
+      return {
+        "icon-position": this.$route.path === "/about",
+        remove: this.$route.path != "/about" && this.$route.path != "/"
+      };
+    },
+  },
+  methods: {
+    pageShift: function () {
+      this.show = !this.show;
+      const _this = this;
+      setTimeout(function () {
+        _this.menuOpen = !_this.menuOpen;
+        callback();
+      }, 500);
+
+      function callback() {
+        setTimeout(function () {
+          _this.show = !_this.show;
+        }, 500);
+      }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style  scoped lang="scss">
-.outer-wrap {
+.background-wrap {
   background: #292929;
   height: 100vh;
   color: #fff;
+
+  .overlay {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+  }
 
   .change-color {
     border-bottom: 1px solid #fff !important;
@@ -245,13 +284,6 @@ export default {
   right: 0;
   left: 0;
 
-  .wrap {
-    width: inherit;
-    height: 100%;
-    z-index: 666;
-    position: relative;
-  }
-
   .container-fluid {
     height: calc(100vh - 50px);
     background-image: radial-gradient(#247718 1.5px, transparent 1.5px);
@@ -270,6 +302,15 @@ export default {
       .fa-facebook-f {
         margin-right: 30px;
       }
+    }
+
+    .icon-position {
+      left: 15px;
+      right: auto;
+    }
+
+    .remove {
+      display: none;
     }
   }
 }

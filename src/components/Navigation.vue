@@ -8,9 +8,15 @@
       <div class="container" style="height: 100%">
         <div class="row" style="height: inherit">
           <div class="col-12 d-flex flex-column justify-content-center">
-            <a class="font-weight-bold mb-3" href="#"><span>About</span></a>
-            <a class="font-weight-bold mb-3" href="#"><span>Work</span></a>
-            <a class="font-weight-bold" href="#"><span>Contact</span></a>
+            <router-link class="nav-link font-weight-bold" to="/about"
+              ><span @click="$emit('pageShift')">About</span></router-link
+            >
+            <router-link class="nav-link font-weight-bold" to="/work"
+              ><span @click="$emit('pageShift')">Work</span></router-link
+            >
+            <router-link class="nav-link font-weight-bold" to="/contact"
+              ><span @click="$emit('pageShift')">Contact</span></router-link
+            >
           </div>
         </div>
       </div>
@@ -34,11 +40,7 @@ export default {
   z-index: 777;
   overflow: hidden;
 
-  .col-12 {
-    padding-bottom: 260px;
-  }
-
-  a {
+  .nav-link {
     font-size: 1.25rem;
     color: #fff;
 
@@ -51,40 +53,43 @@ export default {
       position: relative;
     }
 
-    span:before {
+    span::before {
       content: "";
       position: absolute;
-      width: 0%;
+      width: 0;
       height: 3px;
       top: 50%;
       margin-top: -0.5px;
       background: #292929;
     }
 
-    span:before {
-      left: -20%;
+    span::before {
+      left: -10px;
     }
 
-    span:hover:before {
+    span:hover::before {
       background: #292929;
-      width: 140%;
+      width: calc(100% + 20px);
       transition: width 0.2s cubic-bezier(1, 0, 0.58, 0.97);
+    }
+  }
+
+  .router-link-exact-active {
+    span::before {
+      animation: strike-nav 0.2s;
+    }
+    span::before {
+      width: calc(100% + 20px);
     }
   }
 }
 
-// .slide-leave-to,
-// .slide-enter {
-//   transform: translateX(-100%);
-// }
-
-// .slide-enter-to,
-// .slide-leave {
-//   transform: translateX(0);
-// }
-
-// .slide-enter-active,
-// .slide-leave-active {
-//   transition: all 0.5s ease;
-// }
+@keyframes strike-nav {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(100% + 20px);
+  }
+}
 </style>

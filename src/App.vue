@@ -1,17 +1,17 @@
 <template>
   <div id="app">
+    <!-- <h1>{{ $route.path }}</h1> -->
     <background></background>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Background from "./components/Background";
 
 export default {
   name: "App",
   components: {
-    FontAwesomeIcon,
     Background,
   },
 };
