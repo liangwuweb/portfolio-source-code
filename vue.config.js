@@ -1,4 +1,13 @@
 // vue.config.js
 module.exports = {
-  lintOnSave: true
+  lintOnSave: true,
+  css: {
+      loaderOptions: {
+        sass: {
+            prependData: `
+            @import "~@/scss/style.scss";
+            `
+        }
+      }
+    }
 }

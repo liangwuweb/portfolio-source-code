@@ -1,0 +1,7 @@
+.btn:not(:disabled):not(.disabled) {
+  box-shadow: none !important;
+}
+
+::placeholder {
+  color: $gray-white !important;
+}

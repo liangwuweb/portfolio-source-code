@@ -1,16 +1,17 @@
 import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.css";
 import "animate.css/animate.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFacebookF, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookF, faLinkedinIn, faFacebookSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faFacebookF, faLinkedinIn);
+library.add(faFacebookF, faLinkedinIn, faFacebookSquare,faLinkedin, faChevronRight);
 
-import Home from "./components/Home"
-import About from "./components/About"
+import Home from "./components/Home";
+import About from "./components/About";
+import Project from "./components/Project";
+import Contact from "./components/Contact";
 
 
 Vue.use(VueRouter);
@@ -26,6 +27,14 @@ const router = new VueRouter({
     {
       path: "/about",
       component: About
+    },
+    {
+      path: "/project",
+      component: Project
+    },
+    {
+      path: "/contact",
+      component: Contact
     }
   ]
 }); 

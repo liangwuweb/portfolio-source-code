@@ -18,9 +18,7 @@
 export default {
   name: "about",
   data: function () {
-    return {
-      navbarHeader: "About",
-    };
+    return {};
   },
   components: {},
 };

@@ -11,12 +11,29 @@
             <router-link class="nav-link font-weight-bold" to="/about"
               ><span @click="$emit('pageShift')">About</span></router-link
             >
-            <router-link class="nav-link font-weight-bold" to="/work"
-              ><span @click="$emit('pageShift')">Work</span></router-link
+            <router-link class="nav-link font-weight-bold" to="/project"
+              ><span @click="$emit('pageShift')">Project</span></router-link
             >
             <router-link class="nav-link font-weight-bold" to="/contact"
               ><span @click="$emit('pageShift')">Contact</span></router-link
             >
+            <div class="nav-link">
+              <a
+                target="_blank"
+                href="https://www.facebook.com/profile.php?id=100006741066468"
+                class="mr-3"
+              >
+                <font-awesome-icon
+                  :icon="{ prefix: 'fab', iconName: 'facebook-square' }"
+              /></a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/liang-wu-b16952149/"
+              >
+                <font-awesome-icon
+                  :icon="{ prefix: 'fab', iconName: 'linkedin' }"
+              /></a>
+            </div>
           </div>
         </div>
       </div>
@@ -25,9 +42,14 @@
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 export default {
   name: "navigation",
   props: ["menuOpen"],
+  components: {
+    FontAwesomeIcon,
+  },
 };
 </script>
 
@@ -35,24 +57,24 @@ export default {
 .nav-menu {
   height: 100%;
   width: 100%;
-  background: #3ecc28;
-  position: absolute;
+  background: $green;
+  position: fixed;
   z-index: 777;
   overflow: hidden;
 
   .nav-link {
     font-size: 1.25rem;
-    color: #fff;
+    color: $white;
 
     &:hover {
       text-decoration: none;
-      color: #fff;
+      color: $white;
     }
 
     span {
       position: relative;
     }
-
+    //Strike through effects
     span::before {
       content: "";
       position: absolute;
@@ -60,27 +82,44 @@ export default {
       height: 3px;
       top: 50%;
       margin-top: -0.5px;
-      background: #292929;
+      background: $black;
     }
 
     span::before {
       left: -10px;
     }
 
-    span:hover::before {
-      background: #292929;
-      width: calc(100% + 20px);
-      transition: width 0.2s cubic-bezier(1, 0, 0.58, 0.97);
+    @include break-min(992px) {
+      span:hover::before {
+        background: $black;
+        width: calc(100% + 20px);
+        transition: width 0.2s cubic-bezier(1, 0, 0.58, 0.97);
+      }
     }
   }
 
-  .router-link-exact-active {
-    span::before {
-      animation: strike-nav 0.2s;
+  @include break-min(992px) {
+    .router-link-exact-active {
+      span::before {
+        width: calc(100% + 20px);
+      }
     }
-    span::before {
-      width: calc(100% + 20px);
+  }
+
+  @include break-max(991px) {
+    .router-link-exact-active {
+      span::before {
+        animation: strike-nav 0.2s;
+      }
+      span::before {
+        width: calc(100% + 20px);
+      }
     }
+  }
+
+  a {
+    color: $white;
+    font-size: 1.6rem;
   }
 }
 

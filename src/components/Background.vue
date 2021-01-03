@@ -1,5 +1,8 @@
 <template>
-  <div class="background-wrap">
+  <div
+    class="background-wrap"
+    :class="{ shrink: this.$route.path === '/project' }"
+  >
     <transition
       name="page-shift"
       enter-active-class="animate__animated animate__slideInLeft animate__faster"
@@ -110,17 +113,14 @@
       <h6 class="font-weight-bold my-0" style="color: #3ecc28">
         {{ navbarHeader }}
       </h6>
-      <div
-        class="nav-icon"
-        :class="{ open: menuOpen }"
-        @click="menuOpen = !menuOpen"
-      >
+      <div class="nav-icon" :class="{ open: menuOpen }" @click="expandMenu()">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
+    <div :class="{ 'navbar-background': true }"></div>
 
     <div class="main">
       <div class="container-fluid">
@@ -143,7 +143,6 @@ import Navigation from "./Navigation";
 
 export default {
   name: "background",
-  props: ["navbarHeader"],
   data: function () {
     return {
       menuOpen: false,
@@ -159,8 +158,14 @@ export default {
     positionObj: function () {
       return {
         "icon-position": this.$route.path === "/about",
-        remove: this.$route.path != "/about" && this.$route.path != "/"
+        remove: this.$route.path != "/about" && this.$route.path != "/",
       };
+    },
+    navbarHeader: function () {
+      let headerName = this.$route.path;
+      headerName = headerName.substring(1);
+      headerName = headerName.charAt(0).toUpperCase() + headerName.slice(1);
+      return headerName;
     },
   },
   methods: {
@@ -178,6 +183,17 @@ export default {
         }, 500);
       }
     },
+    scrollStatus: function () {
+      if (this.menuOpen == true) {
+        document.body.style.overflow = "hidden";
+      } else if (this.menuOpen == false) {
+        document.body.style.overflow = "unset";
+      }
+    },
+    expandMenu: function () {
+      this.menuOpen = !this.menuOpen;
+      // this.scrollStatus();
+    },
   },
 };
 </script>
@@ -185,12 +201,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style  scoped lang="scss">
 .background-wrap {
-  background: #292929;
   height: 100vh;
-  color: #fff;
+  color: $white;
 
   .overlay {
-    background: #fff;
+    background: $white;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -198,23 +213,19 @@ export default {
   }
 
   .change-color {
-    border-bottom: 1px solid #fff !important;
+    border-bottom: 1px solid $white !important;
     .logo path {
-      fill: #fff;
+      fill: $white;
     }
   }
 
   .navbar {
     height: 50px;
     padding: 0 15px;
-    border-bottom: 1px solid #3ecc28;
+    border-bottom: 1px solid $green;
     position: fixed;
     width: 100%;
     z-index: 888;
-
-    // .logo path {
-    //   fill: #fff
-    // }
 
     .nav-icon {
       width: 30px;
@@ -228,7 +239,7 @@ export default {
         position: absolute;
         height: 1px;
         width: 100%;
-        background: #3ecc28;
+        background: $green;
         border-radius: 0px;
         opacity: 1;
         left: 0;
@@ -250,7 +261,7 @@ export default {
 
     .open {
       span {
-        background: #fff;
+        background: $white;
       }
 
       span:nth-of-type(1) {
@@ -274,6 +285,18 @@ export default {
       }
     }
   }
+
+  .navbar-background {
+    @extend .navbar;
+    top: 0;
+    border: 0;
+    background: $black;
+    z-index: 333;
+  }
+}
+
+.shrink {
+  height: 0;
 }
 
 .main {
