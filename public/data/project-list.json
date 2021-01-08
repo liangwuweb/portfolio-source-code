@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Project One",
+    "image": "stout.jpg",
+    "position": "center",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
+    "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
+    "siteLink": "https://www.google.com/"
+  },
+  {
+    "name": "Project Two",
+    "image": "drew.jpg",
+    "position": "top",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
+    "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
+    "siteLink": "https://www.google.com/"
+  },
+  {
+     "name": "Project Three",
+    "image": "wheel.jpg",
+    "position": "center",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
+    "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
+    "siteLink": "https://www.google.com/"
+  },
+  {
+    "name": "Project Four",
+    "image": "map.jpg",
+    "position": "center",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
+    "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
+    "siteLink": "https://www.google.com/"
+  }
+]

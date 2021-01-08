@@ -5,3 +5,139 @@
 ::placeholder {
   color: $gray-white !important;
 }
+
+// Modal
+.modal {
+  overflow: auto;
+  background-color: scale-color($bg-black, $alpha: -10%);
+}
+
+.modal-dialog {
+  width: calc(100% - 30px);
+  margin: auto;
+
+  & {
+    @include break-min(992px) {
+      margin-top: 120px;
+    }
+  }
+
+  .modal-content {
+    border-radius: 0;
+    background-color: $dark-gray;
+
+    & {
+      @include break-max(991px) {
+        margin-top: 65px;
+      }
+    }
+
+    .modal-header {
+      padding: 0 0;
+      border-bottom: 0;
+
+      .close {
+        position: absolute;
+        right: -30px;
+        top: 0;
+        opacity: 1;
+        background: $green;
+        padding: 0 0;
+        margin: 0 0;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        outline: 0px solid $green;
+        transition: outline .3s ease-in;
+
+        @include break-min(992px) {
+          &:hover {
+            outline: 4px solid scale-color($dark-green, $alpha: -30%);
+          }
+
+          &:active {
+            line {
+              stroke: $dark-green;
+            }
+          }
+        }
+
+        @include break-max(991px) {
+          &:active {
+            outline: 4px solid scale-color($dark-green, $alpha: -30%);
+            transition: all ease-in;
+
+            line {
+              stroke: $dark-green;
+            }
+          }
+        }
+
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: auto;
+          height: 16px;
+        }
+
+        & {
+          @include break-max(576px) {
+            right: 0 !important;
+            top: -30px !important;
+          }
+        }
+      }
+    }
+
+    .modal-footer {
+      border-top: 0;
+    }
+  }
+}
+
+// Button
+.btn {
+  border-radius: 0;
+}
+
+.btn-primary {
+  background: $green !important;
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.375rem 1.75rem;
+  transition: outline .3s ease-in;
+  outline: 0px solid $green;
+
+  @include break-min(992px) {
+    &:hover {
+      outline: 4px solid scale-color($dark-green, $alpha: -30%);
+    }
+
+    &:active {
+      color: $dark-green !important;
+      border:0 !important;
+    }
+  }
+
+  @include break-max(991px) {
+    &:active {
+      transition: all ease-in;
+      outline: 4px solid scale-color($dark-green, $alpha: -30%);
+      color: $dark-green !important;
+    }
+  }
+
+
+  &:active {
+    background: $green !important;
+  }
+
+  &:hover {
+    background: $green;
+  }
+}
+
+
+

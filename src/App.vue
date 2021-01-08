@@ -8,23 +8,24 @@
 <script>
 import Background from "./components/Background";
 
+ 
+
+
 export default {
   name: "App",
-  data: function() {
-    return {
-    }
+  data: function () {
+    return {};
   },
   components: {
     Background,
   },
-  computed: {
-  },
+  computed: {},
 };
 </script>
 
 <style lang="scss">
 body {
-    background: #292929 !important;
+  background: #292929 !important;
 }
 
 #app {

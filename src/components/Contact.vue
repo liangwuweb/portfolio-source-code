@@ -1,30 +1,17 @@
 <template>
   <div class="contact-wrap">
     <!-- <div class="demo"></div> -->
-    <transition
-      name="fade"
-      enter-active-class="animate__animated animate__fadeIn animate__faster"
-      leave-active-class="animate__animated animate__fadeOut animate__faster"
-      @after-enter="showContent = true"
-    >
+    <transition name="fade" enter-active-class="animate__animated animate__fadeIn animate__faster" leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showContent = true">
       <div v-if="showModal" class="overlay">
         <div class="container">
           <div class="row">
             <div class="col-8 offset-2">
-              <transition
-                name="fade"
-                enter-active-class="animate__animated animate__fadeInDown animate__faster"
-                leave-active-class="animate__animated animate__fadeOutUp animate__faster"
-                @after-leave="showModal = false"
-              >
+              <transition name="fade" enter-active-class="animate__animated animate__fadeInDown animate__faster" leave-active-class="animate__animated animate__fadeOutUp animate__faster" @after-leave="showModal = false">
                 <div v-if="showContent" class="card">
                   <div class="card-body">
                     <h5 class="card-title">The app says</h5>
                     <p class="card-text">Message sent successful!</p>
-                    <button
-                      @click="showContent = false"
-                      class="btn btn-primary font-weight-bold"
-                    >
+                    <button @click="showContent = false" class="btn btn-primary font-weight-bold">
                       OK
                     </button>
                   </div>
@@ -39,33 +26,13 @@
     <div class="container">
       <form id="contact-form" @submit.prevent="process">
         <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            name="name"
-            v-model="name"
-            placeholder="Your name"
-            required
-          />
+          <input type="text" class="form-control" name="name" v-model="name" placeholder="Your name" required />
         </div>
         <div class="form-group">
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            v-model="email"
-            placeholder="Your email"
-            required
-          />
+          <input type="email" class="form-control" name="email" v-model="email" placeholder="Your email" required />
         </div>
         <div class="form-group">
-          <textarea
-            class="form-control"
-            name="message"
-            v-model="message"
-            placeholder="What can we help you with?"
-            required
-          />
+          <textarea class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
         </div>
         <button type="submit" class="btn btn-primary font-weight-bold">
           Submit
@@ -158,21 +125,6 @@ export default {
     }
   }
 
-  .btn-primary {
-    background: $green;
-    border: 0;
-    border-radius: 0;
-    font-size: 0.9rem;
-    padding: 0.375rem 1.75rem;
-    &:active {
-      background: darken($green, 20%) !important;
-    }
-    &:focus {
-      outline: 3px solid scale-color($green, $alpha: -20%);
-      box-shadow: none;
-    }
-  }
-
   form {
     margin-top: 50px;
     text-align: left;
@@ -193,6 +145,4 @@ export default {
     }
   }
 }
-
-
 </style>

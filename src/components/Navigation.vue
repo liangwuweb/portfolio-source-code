@@ -1,38 +1,19 @@
 <template>
-  <transition
-    name="slide"
-    enter-active-class="animate__animated animate__slideInLeft animate__faster"
-    leave-active-class="animate__animated animate__slideOutLeft animate__faster"
-  >
+  <transition name="slide" enter-active-class="animate__animated animate__slideInLeft animate__faster" leave-active-class="animate__animated animate__slideOutLeft animate__faster">
     <div v-if="menuOpen" class="nav-menu">
       <div class="container" style="height: 100%">
         <div class="row" style="height: inherit">
           <div class="col-12 d-flex flex-column justify-content-center">
-            <router-link class="nav-link font-weight-bold" to="/about"
-              ><span @click="$emit('pageShift')">About</span></router-link
-            >
-            <router-link class="nav-link font-weight-bold" to="/project"
-              ><span @click="$emit('pageShift')">Project</span></router-link
-            >
-            <router-link class="nav-link font-weight-bold" to="/contact"
-              ><span @click="$emit('pageShift')">Contact</span></router-link
-            >
+            <router-link class="nav-link font-weight-bold" to="/about"><span @click="$emit('pageShift')">About</span></router-link>
+            <router-link class="nav-link font-weight-bold" to="/project"><span @click="$emit('pageShift')">Project</span></router-link>
+            <router-link class="nav-link font-weight-bold" to="/contact"><span @click="$emit('pageShift')">Contact</span></router-link>
             <div class="nav-link">
-              <a
-                target="_blank"
-                href="https://www.facebook.com/profile.php?id=100006741066468"
-                class="mr-3"
-              >
-                <font-awesome-icon
-                  :icon="{ prefix: 'fab', iconName: 'facebook-square' }"
-              /></a>
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/liang-wu-b16952149/"
-              >
-                <font-awesome-icon
-                  :icon="{ prefix: 'fab', iconName: 'linkedin' }"
-              /></a>
+              <a target="_blank" href="https://www.facebook.com/profile.php?id=100006741066468" class="mr-3">
+                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-square' }" />
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/in/liang-wu-b16952149/">
+                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin' }" />
+              </a>
             </div>
           </div>
         </div>
