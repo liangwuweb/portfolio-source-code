@@ -2,19 +2,21 @@
   <div class="project-wrap position-absolute w-100">
     <div class="container">
       <!-- Video card -->
-      <div v-for="project in projects" :key="project.name" class="video-card row mx-0" @click="showModal(project)">
-        <div class="col-12 mb-2 project" :style="{
+      <transition-group @beforeEnter="beforeEnter" @enter="enter">
+        <div v-for="(project, index) in projects" :key="project.name" class="video-card row mx-0" @click="showModal(project)" :data-index="index">
+          <div class="col-12 mb-2 project" :style="{
             backgroundImage:
               'url(' + require('@/assets/' + project.image) + ')',
             backgroundPosition: project.position
           }"></div>
-        <div class="info d-flex justify-content-between align-items-baseline w-100">
-          <span class="font-weight-bold">{{ project.name }}</span>
-          <svg id="nextbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.402 9.456">
-            <path id="Path_164" data-name="Path 164" d="M4.341,0,0,4.341,4.341,8.752" transform="translate(4.697 9.103) rotate(180)" fill="none" stroke="#f5f5f5" stroke-width="1" />
-          </svg>
+          <div class="info d-flex justify-content-between align-items-baseline w-100">
+            <span class="font-weight-bold">{{ project.name }}</span>
+            <svg id="nextbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.402 9.456">
+              <path id="Path_164" data-name="Path 164" d="M4.341,0,0,4.341,4.341,8.752" transform="translate(4.697 9.103) rotate(180)" fill="none" stroke="#f5f5f5" stroke-width="1" />
+            </svg>
+          </div>
         </div>
-      </div>
+      </transition-group>
 
       <!-- Modal -->
       <transition enter-active-class="animate__animated animate__fadeIn animate__faster" leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showVideoDialog = true">
@@ -53,7 +55,7 @@
                     <transition enter-active-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
                       <popover name="first" class="position-absolute">
                         Woops, Wu is working on this feature
-                        <font-awesome-icon :icon="{prefix: 'fa', iconName:'spinner'}" spin/>
+                        <font-awesome-icon :icon="{prefix: 'fa', iconName:'spinner'}" spin />
                       </popover>
                     </transition>
                   </div>
@@ -68,7 +70,7 @@
                     <transition enter-active-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
                       <popover name="second" class="position-absolute">
                         Woops, Wu is working on this feature
-                        <font-awesome-icon :icon="{prefix: 'fa', iconName:'spinner'}" spin/>
+                        <font-awesome-icon :icon="{prefix: 'fa', iconName:'spinner'}" spin />
                       </popover>
                     </transition>
                   </div>
@@ -100,11 +102,11 @@ export default {
       projectTitle: "",
       description: "",
       videoSrc: "",
-      siteLink: ""
+      siteLink: "",
     };
   },
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   methods: {
     showModal: function (project) {
@@ -124,6 +126,15 @@ export default {
     },
     lanuchSite: function () {
       window.open(this.siteLink, "_blank");
+    },
+    beforeEnter: function (el) {
+      el.className = "d-none";
+    },
+    enter: function (el) {
+      var delay = el.dataset.index * 200;
+      setTimeout(function () {
+        el.className = "video-card row mx-0 animate__animated animate__fadeInUp";
+      }, delay);
     },
   },
   mounted() {

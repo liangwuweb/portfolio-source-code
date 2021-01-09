@@ -1,17 +1,30 @@
 <template>
-  <div class="homepage-wrap position-absolute w-100">
+<transition enter-active-class="animate__animated animate__fadeIn">
+  <div v-if="showHome" class="homepage-wrap position-absolute w-100">
     <div class="wrap d-flex align-items-center justify-content-center">
       <h4 class="font-weight-bold">
         Some thing to <span style="color: #3ecc28">say</span>
       </h4>
     </div>
   </div>
+</transition>
 </template>
 
 <script>
 export default {
   name: "home",
+  data: function () {
+    return {
+      showHome: false,
+    };
+  },
   components: {},
+  mounted(){
+    const _this = this;
+    setTimeout(function () {
+      _this.showHome = !_this.showHome;
+    }, 500);
+  }
 };
 </script>
 

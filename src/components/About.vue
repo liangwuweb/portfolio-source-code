@@ -1,26 +1,36 @@
 <template>
-  <div class="about-wrap position-absolute w-100">
-    <div class="wrap">
-      <div class="container">
-        <p class="text-left">
-          Hi, I’m <span>Liang Wu</span>. I am an <span>Web Developer based in Wisconsin</span>. Driven by
-          passion & curiosity, I try to learn & <span>discover new things</span> everyday.</br> I
-          have got some days in advertising but I am <span>fond of UI Design</span>. I also
-          make photographies and illustrations.</br> <span>Pandy fan</span>, I know exhaustively
-          all GIF about the guys!
-        </p>
+  <transition enter-active-class="animate__animated animate__fadeInDown">
+    <div v-if="showAbout" class="about-wrap position-absolute w-100">
+      <div class="wrap">
+        <div class="container">
+          <p class="text-left">
+            Hi, I’m <span>Liang Wu</span>. I am an <span>Web Developer based in Wisconsin</span>. Driven by
+            passion & curiosity, I try to learn & <span>discover new things</span> everyday.</br> I
+            have got some days in advertising but I am <span>fond of UI Design</span>. I also
+            make photographies and illustrations.</br> <span>Pandy fan</span>, I know exhaustively
+            all GIF about the guys!
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
 export default {
   name: "about",
   data: function () {
-    return {};
+    return {
+      showAbout: false,
+    };
   },
   components: {},
+  mounted() {
+    const _this = this;
+    setTimeout(function () {
+      _this.showAbout = !_this.showAbout;
+    }, 500);
+  },
 };
 </script>
 

@@ -23,22 +23,24 @@
       </div>
     </transition>
 
-    <div class="container">
-      <form id="contact-form" @submit.prevent="process">
-        <div class="form-group">
-          <input type="text" class="form-control" name="name" v-model="name" placeholder="Your name" required />
-        </div>
-        <div class="form-group">
-          <input type="email" class="form-control" name="email" v-model="email" placeholder="Your email" required />
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
-        </div>
-        <button type="submit" class="btn btn-primary font-weight-bold">
-          Submit
-        </button>
-      </form>
-    </div>
+    <transition enter-active-class="animate__animated animate__fadeInDown">
+      <div v-if="showContact" class="container">
+        <form id="contact-form" @submit.prevent="process">
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" v-model="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" v-model="email" placeholder="Your email" required />
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
+          </div>
+          <button type="submit" class="btn btn-primary font-weight-bold">
+            Submit
+          </button>
+        </form>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -54,6 +56,7 @@ export default {
       message: "",
       showModal: false,
       showContent: false,
+      showContact: false
     };
   },
   methods: {
@@ -80,6 +83,12 @@ export default {
       });
     },
   },
+  mounted() {
+    const _this = this;
+    setTimeout(function () {
+      _this.showContact = !_this.showContact;
+    }, 500);
+  }
 };
 </script>
 

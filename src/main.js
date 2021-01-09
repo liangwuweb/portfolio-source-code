@@ -12,6 +12,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Project from "./components/Project";
 import Contact from "./components/Contact";
+//import Spinner from "./components/Spinner.vue";
 
 
 Vue.use(VueRouter);
@@ -35,7 +36,11 @@ const router = new VueRouter({
     {
       path: "/contact",
       component: Contact
-    }
+    },
+    // {
+    //   path: "/spinner",
+    //   component: Spinner
+    // }
   ]
 }); 
 
