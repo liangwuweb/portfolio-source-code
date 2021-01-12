@@ -23,7 +23,8 @@ export default {
   name: "App",
   data: function () {
     return {
-      showLoader: true,
+      //default is true
+      showLoader: false,
     };
   },
   components: {
@@ -34,31 +35,34 @@ export default {
   methods: {
     goHome: function () {
       console.log(this.$refs.child.menuOpen);
+      console.log(window.origin);
       this.showLoader = true;
-      const _this = this;
       setTimeout(() => {
-        if (_this.showLoader === true) {
-          _this.showLoader = !_this.showLoader;
+        if (this.showLoader === true) {
+          this.showLoader = !this.showLoader;
         }
       }, 3000);
       setTimeout(() => {
         this.$refs.child.menuOpen = false;
-        location.href = "http://localhost:8089/#/";
+        location.href = window.origin;
       }, 500);
     },
   },
-  mounted() {
-    const _this = this;
-    setTimeout(function () {
-      _this.showLoader = !_this.showLoader;
-    }, 5000);
-  }
+  // mounted() {
+  //   const _this = this;
+  //   setTimeout(function () {
+  //     _this.showLoader = !_this.showLoader;
+  //   }, 5000);
+  // }
 };
 </script>
 
 <style lang="scss">
 body {
-  background: #292929 !important;
+  background: #292929;
+  background-image: radial-gradient(#247718 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  background-position: center;
 }
 
 #app {
@@ -69,7 +73,7 @@ body {
   color: $white;
   width: 100%;
   height: 100vh;
-
+  
   .loader {
     background: $bg-black;
     width: 100%;

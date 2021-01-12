@@ -2,7 +2,14 @@
   {
     "name": "Project One",
     "image": "stout.jpg",
-    "position": "center",
+    "position": {
+      "sm": {"background-position": "center center"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "420%"}
+    },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
     "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
     "siteLink": "https://www.google.com/"
@@ -10,7 +17,14 @@
   {
     "name": "Project Two",
     "image": "drew.jpg",
-    "position": "top",
+    "position": {
+      "sm": {"background-position": "center top"},
+      "md": {"background-position": "31% top"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "200%"}
+    },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
     "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
     "siteLink": "https://www.google.com/"
@@ -18,7 +32,14 @@
   {
      "name": "Project Three",
     "image": "wheel.jpg",
-    "position": "center",
+    "position": {
+      "sm": {"background-position": "center center"},
+      "md": {"background-position": "50% 10%"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "200%"}
+    },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
     "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
     "siteLink": "https://www.google.com/"
@@ -26,7 +47,14 @@
   {
     "name": "Project Four",
     "image": "map.jpg",
-    "position": "center",
+    "position": {
+      "sm": {"background-position": "center center"},
+      "md": {"background-position": "10% 40%"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "250%"}
+    },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut faucibus pulvinar elementum integer enim. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue. Pretium fusce id velit ut tortor. Dictumst quisque sagittis purus sit. Dignissim enim sit amet venenatis urna.",
     "videoSrc": "https://www.youtube.com/embed/yCKzNMXXBy0",
     "siteLink": "https://www.google.com/"

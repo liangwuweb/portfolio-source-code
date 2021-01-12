@@ -32,8 +32,8 @@
     <div :class="{ 'navbar-background': true }"></div>
 
     <div class="main">
-      <div class="container-fluid">
-        <div class="social-icon" :class="positionObj">
+      <div class="container-md">
+        <div class="social-icon d-block d-md-flex flex-column  justify-content-between" :class="positionObj">
           <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
           <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin-in' }" />
         </div>
@@ -53,7 +53,6 @@ export default {
       menuOpen: false,
       show: false,
       changeColor: "change-color",
-      // showLoader: true,
     };
   },
   components: {
@@ -104,7 +103,7 @@ export default {
       this.menuOpen = !this.menuOpen;
       // this.scrollStatus();
     },
-  }
+  },
 };
 </script>
 
@@ -132,7 +131,7 @@ export default {
 
   .logo {
     cursor: pointer;
-    transition: all .5s cubic-bezier(0, 0.1, 0.32, 1.01);
+    transition: all 0.5s cubic-bezier(0, 0.1, 0.32, 1.01);
     &:hover {
       //transform: scale(1.2);
       transform: translateX(8px);
@@ -234,13 +233,12 @@ export default {
   right: 0;
   left: 0;
 
-  .container-fluid {
+  .container-md {
     height: calc(100vh - 50px);
-    background-image: radial-gradient(#247718 1.5px, transparent 1.5px);
-    background-size: 30px 30px;
-    background-position: center;
     position: absolute;
     bottom: 0;
+    right: 0;
+    left: 0;
 
     .social-icon {
       position: absolute;
@@ -249,8 +247,22 @@ export default {
       cursor: pointer;
       z-index: 666;
 
+      @include break-min(768px) {
+        right: 15px !important;
+        left: auto !important;
+        height: 70px;
+        top: 50%;
+        transform: translate(0%, -90%);
+      }
+
       .fa-facebook-f {
         margin-right: 30px;
+      }
+
+      @include break-between(768px, 991px) {
+        .fa-facebook-f {
+          margin-right: 0px;
+        }
       }
     }
 
@@ -260,7 +272,7 @@ export default {
     }
 
     .remove {
-      display: none;
+      display: none !important;
     }
   }
 }

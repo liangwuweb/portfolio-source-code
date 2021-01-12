@@ -17,6 +17,8 @@
             </div>
           </div>
         </div>
+        <p class="fixed-bottom mb-4">2020 by Liang. All rights reserved.</p>
+
       </div>
     </div>
   </transition>
@@ -101,6 +103,10 @@ export default {
   a {
     color: $white;
     font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.7rem;
   }
 }
 

@@ -3,13 +3,17 @@
     <div v-if="showAbout" class="about-wrap position-absolute w-100">
       <div class="wrap">
         <div class="container">
-          <p class="text-left">
-            Hi, I’m <span>Liang Wu</span>. I am an <span>Web Developer based in Wisconsin</span>. Driven by
-            passion & curiosity, I try to learn & <span>discover new things</span> everyday.</br> I
-            have got some days in advertising but I am <span>fond of UI Design</span>. I also
-            make photographies and illustrations.</br> <span>Pandy fan</span>, I know exhaustively
-            all GIF about the guys!
-          </p>
+          <div class="row align-items-md-center">
+            <div class="col-12 col-md-7 offset-md-1">
+              <p class="text-left">
+                Hi, I’m <span>Liang Wu</span>. I am an <span>Web Developer based in Wisconsin</span>. Driven by
+                passion & curiosity, I try to learn & <span>discover new things</span> everyday.</br> I
+                have got some days in advertising but I am <span>fond of UI Design</span>. I also
+                make photographies and illustrations.</br> <span>Pandy fan</span>, I know exhaustively
+                all GIF about the guys!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -51,11 +55,29 @@ export default {
     z-index: 666;
 
     .container {
-      margin-top: 87px;
+      @include break-max(767px) {
+        margin-top: 87px;
+      }
+      height: calc(100% - 50px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      .row {
+        height: inherit;
+      }
       p {
         line-height: 28px;
         span {
           font-weight: 700;
+        }
+        @include break-max(767px) {
+          margin-top: 26px;
+        }
+        @include break-between(768px, 991px) {
+          font-size: 1.35rem;
+          line-height: 41px;
         }
       }
     }

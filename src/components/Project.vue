@@ -1,14 +1,13 @@
 <template>
   <div class="project-wrap position-absolute w-100">
-    <div class="container">
+    <div class="container px-md-0">
       <!-- Video card -->
-      <transition-group @beforeEnter="beforeEnter" @enter="enter">
-        <div v-for="(project, index) in projects" :key="project.name" class="video-card row mx-0" @click="showModal(project)" :data-index="index">
-          <div class="col-12 mb-2 project" :style="{
+      <transition-group @beforeEnter="beforeEnter" @enter="enter" class="row mx-0">
+        <div v-for="(project, index) in projects" :key="project.name" class="col-12 col-md-4 video-card px-0" @click="showModal(project)" :data-index="index">
+          <div class="mb-2 project" :style="[{
             backgroundImage:
-              'url(' + require('@/assets/' + project.image) + ')',
-            backgroundPosition: project.position
-          }"></div>
+              'url(' + require('@/assets/' + project.image) + ')'
+          },  project.staticPosition, project.resizePosition, project.staticSize, project.resizeSize]"></div>
           <div class="info d-flex justify-content-between align-items-baseline w-100">
             <span class="font-weight-bold">{{ project.name }}</span>
             <svg id="nextbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.402 9.456">
@@ -108,7 +107,52 @@ export default {
   components: {
     FontAwesomeIcon,
   },
+  computed: {},
   methods: {
+    staticPosition: function () {
+      if (window.innerWidth >= 768) {
+        this.projects.forEach((project) => {
+          project.staticPosition = project.position.md;
+        });
+      } else {
+        this.projects.forEach((project) => {
+          project.staticPosition = project.position.sm;
+        });
+      }
+    },
+    resizePosition: function () {
+      if (window.innerWidth >= 768) {
+        this.projects.forEach((project) => {
+          project.resizePosition = project.position.md;
+        });
+      } else {
+        this.projects.forEach((project) => {
+          project.resizePosition = project.position.sm;
+        });
+      }
+    },
+    staticSize: function () {
+      if (window.innerWidth >= 768) {
+        this.projects.forEach((project) => {
+          project.staticSize = project.size.md;
+        });
+      } else {
+        this.projects.forEach((project) => {
+          project.staticSize = project.size.sm;
+        });
+      }
+    },
+    resizeSize: function () {
+      if (window.innerWidth >= 768) {
+        this.projects.forEach((project) => {
+          project.resizeSize = project.size.md;
+        });
+      } else {
+        this.projects.forEach((project) => {
+          project.resizeSize = project.size.sm;
+        });
+      }
+    },
     showModal: function (project) {
       this.projectTitle = project.name;
       this.description = project.description;
@@ -133,14 +177,36 @@ export default {
     enter: function (el) {
       var delay = el.dataset.index * 200;
       setTimeout(function () {
-        el.className = "video-card row mx-0 animate__animated animate__fadeInUp";
+        el.className =
+          "video-card col-12 col-md-4 px-0 animate__animated animate__fadeInUp";
       }, delay);
     },
   },
   mounted() {
     axios.get("./data/project-list.json").then((response) => {
-      this.projects = response.data;
+      this.projects = response.data.map((item) => {
+        item.staticPosition = {};
+        item.resizePosition = {};
+        item.staticSize = {};
+        item.resizeSize = {};
+        return item;
+      });
+      this.staticPosition();
+      this.staticSize();
+      //console.log(this.projects);
     });
+
+    this.$nextTick(function () {
+      window.addEventListener("resize", this.resizePosition);
+      window.addEventListener("resize", this.resizeSize);
+
+      //initialize
+      this.resizePosition();
+      this.resizeSize();
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.resizePosition);
   },
 };
 </script>
@@ -149,10 +215,17 @@ export default {
 .project-wrap {
   .container {
     margin-top: 87px;
+    @include break-min(768px) {
+      margin-top: 170px;
+    }
 
     .video-card {
       margin-bottom: 35px;
       cursor: pointer;
+      @include break-min(768px) {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
 
       //Mobile interaction for the video card
       &:active {
@@ -166,6 +239,9 @@ export default {
         background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
+        @include break-min(768px) {
+          background-size: 280%;
+        }
       }
     }
 
@@ -173,6 +249,11 @@ export default {
       width: 100%;
       height: 70px;
       background: #ccc;
+
+      @include break-min(768px) {
+        height: auto;
+        padding-top: 100%;
+      }
 
       &::before {
         content: "";
@@ -183,6 +264,14 @@ export default {
         z-index: 111;
         opacity: 0.25;
         left: 0;
+
+        @include break-min(768px) {
+          width: calc(100% - 30px);
+          left: 15px;
+          height: auto;
+          padding-top: calc(100% - 30px);
+          top: 0;
+        }
       }
     }
 
