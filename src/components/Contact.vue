@@ -38,7 +38,7 @@
                 <input type="email" class="form-control" name="email" v-model="email" placeholder="Your email" required />
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
+                <textarea style="height: 150px;padding-top: 1rem;" class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
               </div>
               <button type="submit" class="btn btn-primary font-weight-bold">
                 Submit
@@ -164,6 +164,7 @@ export default {
       background: $dark-gray;
       color: #f5f5f5;
       font-size: 0.8rem;
+      font-family: 'Gotham Pro Regular';
       padding: 1.25rem 0.75rem;
       @include break-min(768px) {
         padding: 1.5rem 0.75rem;
@@ -179,7 +180,7 @@ export default {
 
   .notes {
     margin-top: 130px;
-    font-size: 1.07rem;
+    font-size: 0.9rem;
     @include break-min(992px) {
       margin-top: 74px;
     }

@@ -160,6 +160,7 @@ export default {
 
 .menu-text {
   color: $white;
+  font-family: 'Gotham Pro Medium';
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.4em;
