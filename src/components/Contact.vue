@@ -1,6 +1,5 @@
 <template>
   <div class="contact-wrap">
-    <!-- <div class="demo"></div> -->
     <transition name="fade" enter-active-class="animate__animated animate__fadeIn animate__faster" leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showContent = true">
       <div v-if="showModal" class="overlay">
         <div class="container">
@@ -25,20 +24,29 @@
 
     <transition enter-active-class="animate__animated animate__fadeInDown">
       <div v-if="showContact" class="container">
-        <form id="contact-form" @submit.prevent="process">
-          <div class="form-group">
-            <input type="text" class="form-control" name="name" v-model="name" placeholder="Your name" required />
+        <div class="row">
+          <div class="col-12 col-md-10 offset-md-1 col-lg-3 order-lg-1">
+            <p class="text-left d-none d-md-block notes">I am interested in new opportunities – especially front-end developer position. Please don’t hesitate to contact me using below form or social media.</p>
           </div>
-          <div class="form-group">
-            <input type="email" class="form-control" name="email" v-model="email" placeholder="Your email" required />
+          <div class="col-12 col-md-10 offset-md-1 col-lg-6 order-lg-0">
+            <h1 class="font-weight-bold header d-none d-lg-block text-left mb-3">Contact Me</h1>
+            <form id="contact-form" @submit.prevent="process">
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" v-model="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" v-model="email" placeholder="Your email" required />
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
+              </div>
+              <button type="submit" class="btn btn-primary font-weight-bold">
+                Submit
+              </button>
+            </form>
           </div>
-          <div class="form-group">
-            <textarea class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
-          </div>
-          <button type="submit" class="btn btn-primary font-weight-bold">
-            Submit
-          </button>
-        </form>
+        </div>
+
       </div>
     </transition>
   </div>
@@ -56,7 +64,7 @@ export default {
       message: "",
       showModal: false,
       showContent: false,
-      showContact: false
+      showContact: false,
     };
   },
   methods: {
@@ -88,7 +96,7 @@ export default {
     setTimeout(function () {
       _this.showContact = !_this.showContact;
     }, 500);
-  }
+  },
 };
 </script>
 
@@ -134,23 +142,46 @@ export default {
     }
   }
 
-  form {
-    margin-top: 50px;
-    text-align: left;
+  .header {
+    color: $green;
   }
 
-  .form-control {
-    border: 0;
-    border-radius: 0;
-    background: $dark-gray;
-    color: #f5f5f5;
-    font-size: 0.8rem;
-    padding: 1.25rem 0.75rem;
-    transition: outline 0.45s ease-in;
-    outline: 3px solid #3ecc2800;
-    &:focus {
-      outline: 3px solid #3ecc2888;
-      box-shadow: none;
+  .row {
+    @include break-min(992px) {
+      padding-top: 140px;
+    }
+    form {
+      margin-top: 50px;
+      @include break-min(768px) {
+        margin-top: 30px;
+      }
+      text-align: left;
+    }
+
+    .form-control {
+      border: 0;
+      border-radius: 0;
+      background: $dark-gray;
+      color: #f5f5f5;
+      font-size: 0.8rem;
+      padding: 1.25rem 0.75rem;
+      @include break-min(768px) {
+        padding: 1.5rem 0.75rem;
+      }
+      transition: outline 0.45s ease-in;
+      outline: 3px solid #3ecc2800;
+      &:focus {
+        outline: 3px solid #3ecc2888;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .notes {
+    margin-top: 130px;
+    font-size: 1.07rem;
+    @include break-min(992px) {
+      margin-top: 74px;
     }
   }
 }

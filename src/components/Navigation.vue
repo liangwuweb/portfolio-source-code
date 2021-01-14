@@ -1,6 +1,6 @@
 <template>
   <transition name="slide" enter-active-class="animate__animated animate__slideInLeft animate__faster" leave-active-class="animate__animated animate__slideOutLeft animate__faster">
-    <div v-if="menuOpen" class="nav-menu">
+    <div v-if="menuOpen" class="nav-menu d-lg-none">
       <div class="container" style="height: 100%">
         <div class="row" style="height: inherit">
           <div class="col-12 d-flex flex-column justify-content-center">
@@ -18,7 +18,6 @@
           </div>
         </div>
         <p class="fixed-bottom mb-4">2020 by Liang. All rights reserved.</p>
-
       </div>
     </div>
   </transition>
@@ -56,6 +55,11 @@ export default {
 
     span {
       position: relative;
+      & {
+        @include break-min(768px) {
+          font-size: 1.8rem;
+        }
+      }
     }
     //Strike through effects
     span::before {
@@ -70,6 +74,14 @@ export default {
 
     span::before {
       left: -10px;
+    }
+
+    @include break-max(991px) {
+      span:active::before {
+        background: $black;
+        width: calc(100% + 20px);
+        transition: width 0.1s ease-in;
+      }
     }
 
     @include break-min(992px) {
@@ -92,7 +104,7 @@ export default {
   @include break-max(991px) {
     .router-link-exact-active {
       span::before {
-        animation: strike-nav 0.2s;
+        animation: strike-nav 0.1s ease-in;
       }
       span::before {
         width: calc(100% + 20px);
@@ -103,6 +115,9 @@ export default {
   a {
     color: $white;
     font-size: 1.6rem;
+    @include break-min(768px) {
+      font-size: 2rem;
+    }
   }
 
   p {

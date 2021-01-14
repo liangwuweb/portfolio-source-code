@@ -6,18 +6,20 @@
       </div>
     </transition>
 
+    <!-- <desktop-nav ref="secondChild"></desktop-nav> -->
     <background ref="child" @goHome="goHome"></background>
     <!-- The main section will not render when showLoader is true -->
     <div v-if="!showLoader" class="main">
       <router-view></router-view>
     </div>
-
   </div>
 </template>
+
 
 <script>
 import Background from "./components/Background";
 import Spinner from "./components/Spinner";
+// import DesktopNav from "./components/DesktopNav";
 
 export default {
   name: "App",
@@ -29,9 +31,11 @@ export default {
   },
   components: {
     Background,
-    Spinner
+    Spinner,
+    // DesktopNav,
   },
-  computed: {},
+  computed: {
+  },
   methods: {
     goHome: function () {
       console.log(this.$refs.child.menuOpen);
@@ -48,12 +52,12 @@ export default {
       }, 500);
     },
   },
-  // mounted() {
-  //   const _this = this;
-  //   setTimeout(function () {
-  //     _this.showLoader = !_this.showLoader;
-  //   }, 5000);
-  // }
+  mounted() {
+    // const _this = this;
+    // setTimeout(function () {
+    //   _this.showLoader = !_this.showLoader;
+    // }, 5000);
+  },
 };
 </script>
 
@@ -73,7 +77,7 @@ body {
   color: $white;
   width: 100%;
   height: 100vh;
-  
+
   .loader {
     background: $bg-black;
     width: 100%;

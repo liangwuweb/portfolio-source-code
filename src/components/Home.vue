@@ -46,5 +46,11 @@ export default {
     left: 0;
     bottom: 0;
   }
+
+  @include break-min(992px) {
+    h4 {
+      font-size: 1.8rem;
+    }
+  }
 }
 </style>

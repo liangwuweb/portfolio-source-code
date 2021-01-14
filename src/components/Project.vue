@@ -1,13 +1,19 @@
 <template>
   <div class="project-wrap position-absolute w-100">
     <div class="container px-md-0">
+      <div class="row mx-0">
+        <div class="col-lg-3 offset-lg-1 pl-0">
+          <h1 class="font-weight-bold header d-none d-lg-block text-left pl-lg-3 mb-4">Project</h1>
+        </div>
+      </div>
       <!-- Video card -->
       <transition-group @beforeEnter="beforeEnter" @enter="enter" class="row mx-0">
-        <div v-for="(project, index) in projects" :key="project.name" class="col-12 col-md-4 video-card px-0" @click="showModal(project)" :data-index="index">
+        <div v-for="(project, index) in projects" :key="project.name" class="col-12 col-md-4 col-lg-3 video-card px-0" @click="showModal(project)" :data-index="index">
           <div class="mb-2 project" :style="[{
             backgroundImage:
               'url(' + require('@/assets/' + project.image) + ')'
-          },  project.staticPosition, project.resizePosition, project.staticSize, project.resizeSize]"></div>
+          },  project.staticPosition, project.resizePosition, project.staticSize, project.resizeSize]">
+          </div>
           <div class="info d-flex justify-content-between align-items-baseline w-100">
             <span class="font-weight-bold">{{ project.name }}</span>
             <svg id="nextbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.402 9.456">
@@ -178,7 +184,7 @@ export default {
       var delay = el.dataset.index * 200;
       setTimeout(function () {
         el.className =
-          "video-card col-12 col-md-4 px-0 animate__animated animate__fadeInUp";
+          "video-card col-12 col-md-4 col-lg-3 px-0 animate__animated animate__fadeInUp";
       }, delay);
     },
   },
@@ -207,6 +213,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.resizePosition);
+    window.removeEventListener("resize", this.resizeSize);
   },
 };
 </script>
@@ -215,13 +222,23 @@ export default {
 .project-wrap {
   .container {
     margin-top: 87px;
-    @include break-min(768px) {
-      margin-top: 170px;
+    @include break-between(768px, 1199px) {
+      margin-top: 100px;
     }
-
+    @include break-min(1200px) {
+      margin-top: 50px;
+    }
+    .header {
+      color: $green;
+    }
     .video-card {
       margin-bottom: 35px;
       cursor: pointer;
+      @include break-min(992px) {
+        &:nth-of-type(3n + 1) {
+          margin-left: 8.3333333333%;
+        }
+      }
       @include break-min(768px) {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -278,6 +295,9 @@ export default {
     .info {
       span {
         font-size: 0.9rem;
+        @include break-min(768px) {
+          font-size: 1rem;
+        }
       }
       svg {
         width: 6.34px;

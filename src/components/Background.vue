@@ -3,8 +3,9 @@
     <!-- <transition enter-active-class="animate__animated animate__slideInDown" leave-active-class="animate__animated animate__slideOutUp">
       <div v-if="showLoader" class="loader justify-content-center d-flex align-items-center font-weight-bold text-dark">LOADING...</div>
     </transition> -->
+    <desktop-nav :deskMenuOpen="menuOpen" @toggleDeskMenu="toggleMenu()" @pageShift="pageShift"></desktop-nav>
     <navigation :menuOpen="menuOpen" @pageShift="pageShift"></navigation>
-    <div class="navbar" :class="{ 'change-color': menuOpen }">
+    <div class="navbar d-lg-none" :class="{ 'change-color': menuOpen }">
       <svg @click="$emit('goHome')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665" class="logo">
         <g id="Group_182" data-name="Group 182" transform="translate(-72 -81)">
           <path id="Path_294" data-name="Path 294" d="M287.422,319.461" transform="translate(-198.854 -220.121)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
@@ -22,14 +23,14 @@
       <h6 class="font-weight-bold my-0" style="color: #3ecc28">
         {{ navbarHeader }}
       </h6>
-      <div class="nav-icon" :class="{ open: menuOpen }" @click="expandMenu()">
+      <div class="nav-icon" :class="{ open: menuOpen }" @click="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
-    <div :class="{ 'navbar-background': true }"></div>
+    <div class="navbar-background d-lg-none"></div>
 
     <div class="main">
       <div class="container-md">
@@ -45,6 +46,7 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Navigation from "./Navigation";
+import DesktopNav from "./DesktopNav";
 
 export default {
   name: "background",
@@ -58,12 +60,16 @@ export default {
   components: {
     FontAwesomeIcon,
     Navigation,
+    DesktopNav,
   },
   computed: {
     positionObj: function () {
       return {
         "icon-position": this.$route.path === "/about",
-        remove: this.$route.path != "/about" && this.$route.path != "/",
+        remove:
+          this.$route.path != "/about" &&
+          this.$route.path != "/" &&
+          this.$route.path != "/contact",
       };
     },
     navbarHeader: function () {
@@ -75,7 +81,6 @@ export default {
   },
   methods: {
     pageShift: function () {
-      this.show = !this.show;
       const _this = this;
       setTimeout(function () {
         if (_this.menuOpen === true) {
@@ -83,14 +88,7 @@ export default {
         } else {
           _this.menuOpen = _this.menuOpen;
         }
-        callback();
-      }, 500);
-
-      function callback() {
-        setTimeout(function () {
-          _this.show = !_this.show;
-        }, 500);
-      }
+      }, 300);
     },
     scrollStatus: function () {
       if (this.menuOpen == true) {
@@ -99,7 +97,7 @@ export default {
         document.body.style.overflow = "unset";
       }
     },
-    expandMenu: function () {
+    toggleMenu: function () {
       this.menuOpen = !this.menuOpen;
       // this.scrollStatus();
     },
@@ -210,6 +208,12 @@ export default {
         left: 50%;
       }
     }
+
+    h6 {
+      @include break-min(768px) {
+        font-size: 1.15rem;
+      }
+    }
   }
 
   .navbar-background {
@@ -241,26 +245,23 @@ export default {
     left: 0;
 
     .social-icon {
-      position: absolute;
+      position: fixed;
       bottom: 20px;
       right: 15px;
       cursor: pointer;
       z-index: 666;
 
       @include break-min(768px) {
-        right: 15px !important;
+        right: 40px !important;
         left: auto !important;
         height: 70px;
         top: 50%;
-        transform: translate(0%, -90%);
+        transform: translate(0%, -50%);
       }
 
       .fa-facebook-f {
         margin-right: 30px;
-      }
-
-      @include break-between(768px, 991px) {
-        .fa-facebook-f {
+        @include break-min(768px) {
           margin-right: 0px;
         }
       }
