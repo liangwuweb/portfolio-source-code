@@ -4,7 +4,7 @@
       <div v-if="showModal" class="overlay">
         <div class="container">
           <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-8 offset-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
               <transition name="fade" enter-active-class="animate__animated animate__fadeInDown animate__faster" leave-active-class="animate__animated animate__fadeOutUp animate__faster" @after-leave="showModal = false">
                 <div v-if="showContent" class="card">
                   <div class="card-body">
