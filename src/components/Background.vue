@@ -1,9 +1,6 @@
 <template>
   <div class="background-wrap" :class="{ shrink: this.$route.path === '/project' }">
-    <!-- <transition enter-active-class="animate__animated animate__slideInDown" leave-active-class="animate__animated animate__slideOutUp">
-      <div v-if="showLoader" class="loader justify-content-center d-flex align-items-center font-weight-bold text-dark">LOADING...</div>
-    </transition> -->
-    <desktop-nav :deskMenuOpen="menuOpen" @toggleDeskMenu="toggleMenu()" @pageShift="pageShift"></desktop-nav>
+    <desktop-nav :deskMenuOpen="menuOpen" @toggleDeskMenu="toggleMenu()" @pageShift="pageShift" @goHomeDesk="goHomeDesk"></desktop-nav>
     <navigation :menuOpen="menuOpen" @pageShift="pageShift"></navigation>
     <div class="navbar d-lg-none" :class="{ 'change-color': menuOpen }">
       <svg @click="$emit('goHome')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665" class="logo">
@@ -35,8 +32,12 @@
     <div class="main">
       <div class="container-md">
         <div class="social-icon d-block d-md-flex flex-column  justify-content-between" :class="positionObj">
-          <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
-          <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin-in' }" />
+          <a href="https://www.facebook.com/profile.php?id=100006741066468" target="_blank">
+            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
+          </a>
+          <a href="https://www.linkedin.com/in/liang-wu-b16952149/" target="_blank">
+            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin-in' }" />
+          </a>
         </div>
       </div>
     </div>
@@ -100,6 +101,19 @@ export default {
     toggleMenu: function () {
       this.menuOpen = !this.menuOpen;
       // this.scrollStatus();
+    },
+    goHomeDesk: function () {
+      console.log(this.$parent.showLoader);
+      this.$parent.showLoader = true;
+      setTimeout(() => {
+        if (this.showLoader === true) {
+          this.$parent.showLoader = !this.$parent.showLoader;
+        }
+      }, 3000);
+      setTimeout(() => {
+        this.menuOpen = false;
+        location.href = window.origin;
+      }, 500);
     },
   },
 };
@@ -249,7 +263,7 @@ export default {
       bottom: 20px;
       right: 15px;
       cursor: pointer;
-      z-index: 666;
+      z-index: 777;
 
       @include break-min(768px) {
         right: 40px !important;
@@ -259,10 +273,22 @@ export default {
         transform: translate(0%, -50%);
       }
 
+      a {
+        color: $white !important;
+      }
+
       .fa-facebook-f {
         margin-right: 30px;
+        &:hover {
+          color: $green;
+        }
         @include break-min(768px) {
           margin-right: 0px;
+        }
+      }
+      .fa-linkedin-in {
+        &:hover {
+          color: $green;
         }
       }
     }

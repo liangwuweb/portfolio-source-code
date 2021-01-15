@@ -6,8 +6,7 @@
       </div>
     </transition>
 
-    <!-- <desktop-nav ref="secondChild"></desktop-nav> -->
-    <background ref="child" @goHome="goHome"></background>
+    <background ref="child" @goHome="goHome" :loaderStatus="showLoader"></background>
     <!-- The main section will not render when showLoader is true -->
     <div v-if="!showLoader" class="main">
       <router-view></router-view>
@@ -26,7 +25,7 @@ export default {
   data: function () {
     return {
       //default is true
-      showLoader: false,
+      showLoader: true,
     };
   },
   components: {
@@ -34,8 +33,7 @@ export default {
     Spinner,
     // DesktopNav,
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     goHome: function () {
       console.log(this.$refs.child.menuOpen);
@@ -53,10 +51,10 @@ export default {
     },
   },
   mounted() {
-    // const _this = this;
-    // setTimeout(function () {
-    //   _this.showLoader = !_this.showLoader;
-    // }, 5000);
+    const _this = this;
+    setTimeout(function () {
+      _this.showLoader = !_this.showLoader;
+    }, 5000);
   },
 };
 </script>
@@ -83,7 +81,7 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: 999;
+    z-index: 1100;
   }
 }
 

@@ -7,11 +7,9 @@
             <div class="col-12 col-md-7 offset-md-1 col-lg-6 offset-lg-2 col-xl-7">
               <h1 class="font-weight-bold header d-none d-lg-block text-left pl-lg-3 pl-xl-0 mb-3">About Me</h1>
               <p class="text-left px-lg-3 px-xl-0">
-                Hi, I’m <span>Liang Wu</span>. I am an <span>Web Developer based in Wisconsin</span>. Driven by
-                passion & curiosity, I try to learn & <span>discover new things</span> everyday.</br> I
-                have got some days in advertising but I am <span>fond of UI Design</span>. I also
-                make photographies and illustrations.</br> <span>Pandy fan</span>, I know exhaustively
-                all GIF about the guys!
+                Hi, my name is <span>Wu</span>. I am a <span>Web Developer</span> based in <span>Wisconsin</span>. I love using programming to construct 
+                <span>interactive websites</span> and enjoy <span>manipulating the data</span> between the <span>front-end</span> and the <span>back-end</span>.</br> 
+                Learning <span>new things</span> and <span>technologies</span> makes me excited. </br> I prefer to learn <span>knowledge</span> from practices and eager to <span>become stronger</span> every day!
               </p>
             </div>
           </div>
@@ -76,7 +74,8 @@ export default {
       p {
         line-height: 28px;
         span {
-          font-weight: 700;
+          font-family: 'Gotham Pro Bold';
+          color: $green;
         }
         @include break-max(767px) {
           margin-top: 26px;

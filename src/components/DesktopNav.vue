@@ -1,5 +1,6 @@
 <template>
   <div class="desktop-nav-wrap">
+
     <div class="desktop-navbar d-none d-lg-block" :class="{hover: hover}">
       <div class="nav-icon" @mouseenter="hover = true" @mouseleave="hover =false" @click="$emit('toggleDeskMenu')">
         <div class="menu-text font-weight-bold">Menu</div>
@@ -11,7 +12,7 @@
 
     <div class="header d-none d-lg-block">
       <div class="site-logo" :class="{hover: hover, hide: deskMenuOpen}">
-        <svg xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
+        <svg @click="$emit('goHomeDesk')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
           <g id="Group_182" data-name="Group 182" transform="translate(-72 -81)">
             <path id="Path_294" data-name="Path 294" d="M287.422,319.461" transform="translate(-198.854 -220.121)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
             <path id="Path_295" data-name="Path 295" d="M417.93,348.9" transform="translate(-319.325 -247.297)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
@@ -31,7 +32,7 @@
     <div class="navigation d-none d-lg-block" :class="{active: deskMenuOpen}">
       <div class="header">
         <div class="site-logo" :class="{hover: hover}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
+          <svg @click="$emit('goHomeDesk')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
             <g id="Group_182" data-name="Group 182" transform="translate(-72 -81)">
               <path id="Path_294" data-name="Path 294" d="M287.422,319.461" transform="translate(-198.854 -220.121)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
               <path id="Path_295" data-name="Path 295" d="M417.93,348.9" transform="translate(-319.325 -247.297)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
@@ -62,7 +63,7 @@
             </a>
           </div>
         </div>
-        <p class="fixed-bottom mb-4">2020 by Liang. All rights reserved.</p>
+        <p class="fixed-bottom mb-4">2021 created by Liang. All rights reserved.</p>
       </div>
 
       <div class="close-btn">
@@ -85,7 +86,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   name: "desktop-nav",
-  props:["deskMenuOpen"],
+  props: ["deskMenuOpen"],
   data: function () {
     return {
       hover: false,
@@ -93,7 +94,7 @@ export default {
   },
   components: {
     FontAwesomeIcon,
-  }
+  },
 };
 </script>
 
@@ -160,7 +161,7 @@ export default {
 
 .menu-text {
   color: $white;
-  font-family: 'Gotham Pro Medium';
+  font-family: "Gotham Pro Medium";
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.4em;
@@ -218,6 +219,11 @@ export default {
       height: 41.73px;
       cursor: pointer;
       transition: all 0.5s cubic-bezier(0, 0.1, 0.32, 1.01);
+      @include break-min(992px) {
+        &:hover {
+          transform: translateX(8px);
+        }
+      }
     }
   }
 }
@@ -290,7 +296,7 @@ export default {
     padding-top: 120px;
     padding-right: 80px;
   }
-    p {
+  p {
     font-size: 0.7rem;
   }
 }
@@ -334,6 +340,13 @@ export default {
   .social-icon {
     color: $white;
     font-size: 2rem;
+    @include break-min(992px) {
+      &:hover {
+        svg path {
+          fill: $black;
+        }
+      }
+    }
   }
 }
 

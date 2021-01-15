@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <p class="fixed-bottom mb-4">2020 by Liang. All rights reserved.</p>
+        <p class="fixed-bottom mb-4">2021 created by Liang. All rights reserved.</p>
       </div>
     </div>
   </transition>
@@ -41,7 +41,7 @@ export default {
   width: 100%;
   background: $green;
   position: fixed;
-  z-index: 777;
+  z-index: 780;
   overflow: hidden;
 
   .nav-link {
@@ -115,6 +115,13 @@ export default {
   a {
     color: $white;
     font-size: 1.6rem;
+    @include break-max(991px) {
+      svg:hover {
+        path {
+          fill: $black;
+        }
+      }
+    }
     @include break-min(768px) {
       font-size: 2rem;
     }

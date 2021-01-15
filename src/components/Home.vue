@@ -3,7 +3,7 @@
   <div v-if="showHome" class="homepage-wrap position-absolute w-100">
     <div class="wrap d-flex align-items-center justify-content-center">
       <h4 class="font-weight-bold">
-        Some thing to <span style="color: #3ecc28">say</span>
+        Hi, I am <span style="color: #3ecc28">Liang Wu</span>
       </h4>
     </div>
   </div>
