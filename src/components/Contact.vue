@@ -26,7 +26,7 @@
       <div v-if="showContact" class="container">
         <div class="row">
           <div class="col-12 col-md-10 offset-md-1 col-lg-3 order-lg-1">
-            <p class="text-left d-none d-md-block notes">I am looking for new opportunities – especially front-end developer or web developer position. Please don’t hesitate to contact me this form on this page or social media.</p>
+            <p class="text-left d-none d-md-block notes">I am looking for new opportunities – especially front-end developer or web developer position. Please don’t hesitate to contact me with this form or my social media.</p>
           </div>
           <div class="col-12 col-md-10 offset-md-1 col-lg-6 order-lg-0">
             <h1 class="font-weight-bold header d-none d-lg-block text-left mb-3">Contact Me</h1>

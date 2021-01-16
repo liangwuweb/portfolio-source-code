@@ -4,10 +4,10 @@
       <div class="wrap">
         <div class="container">
           <div class="row align-items-md-center">
-            <div class="col-12 col-md-7 offset-md-1 col-lg-6 offset-lg-2 col-xl-7">
+            <div class="col-12 col-md-11 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
               <h1 class="font-weight-bold header d-none d-lg-block text-left pl-lg-3 pl-xl-0 mb-3">About Me</h1>
               <p class="text-left px-lg-3 px-xl-0">
-                Hi, my name is <span>Wu</span>. I am a <span>Web Developer</span> based in <span>Wisconsin</span>. I love using programming to construct 
+                Hi, my name is <span>Wu</span>. I am a <span>Web Developer</span> based in <span>Wisconsin</span>.</br> I love using programming to construct 
                 <span>interactive websites</span> and enjoy <span>manipulating the data</span> between the <span>front-end</span> and the <span>back-end</span>.</br> 
                 Learning <span>new things</span> and <span>technologies</span> makes me excited. </br> I prefer to learn <span>knowledge</span> from practices and eager to <span>become stronger</span> every day!
               </p>
@@ -81,7 +81,7 @@ export default {
           margin-top: 26px;
         }
         @include break-between(768px, 991px) {
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           line-height: 41px;
         }
         @include break-min(992px) {
