@@ -203,10 +203,11 @@ export default {
 
 .header {
   width: 90px;
-  height: 100%;
+  height: 100px;
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 1000;
   .site-logo {
     position: absolute;
     top: 30px;
