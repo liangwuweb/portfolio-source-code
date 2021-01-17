@@ -235,7 +235,7 @@ export default {
     top: 0;
     border: 0;
     background: $black;
-    z-index: 333;
+    z-index: 668;
   }
 }
 

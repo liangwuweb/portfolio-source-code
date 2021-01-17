@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="header d-none d-lg-block">
+    <div class="header d-none d-lg-block position-fixed">
       <div class="site-logo" :class="{hover: hover, hide: deskMenuOpen}">
         <svg @click="$emit('goHomeDesk')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
           <g id="Group_182" data-name="Group 182" transform="translate(-72 -81)">
@@ -102,7 +102,7 @@ export default {
 .desktop-navbar {
   width: 90px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 999;

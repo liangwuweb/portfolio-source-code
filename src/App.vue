@@ -65,6 +65,12 @@ body {
   background-image: radial-gradient(#247718 1.5px, transparent 1.5px);
   background-size: 30px 30px;
   background-position: center;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 #app {
