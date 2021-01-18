@@ -55,7 +55,13 @@ export default {
     setTimeout(function () {
       _this.showLoader = !_this.showLoader;
     }, 5000);
+
+    // Make sure active pseduo class works on mobile
+    addEventListener("touchstart", function() {},false);
   },
+  destroyed() {
+    removeEventListener("touchstart", function() {},false);
+  }
 };
 </script>
 
@@ -71,6 +77,8 @@ body {
   }
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  // Prevent Zoom in gesture in mobile IOS safari and chorme
+  touch-action: pan-x pan-y;
 }
 
 #app {
@@ -86,7 +94,7 @@ body {
     background: $bg-black;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 1100;
   }
 }
