@@ -12,7 +12,7 @@
 
     <div class="header d-none d-lg-block position-fixed">
       <div class="site-logo" :class="{hover: hover, hide: deskMenuOpen}">
-        <svg @click="$emit('goHomeDesk')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
+        <!-- <svg @click="$emit('goHomeDesk')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
           <g id="Group_182" data-name="Group 182" transform="translate(-72 -81)">
             <path id="Path_294" data-name="Path 294" d="M287.422,319.461" transform="translate(-198.854 -220.121)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
             <path id="Path_295" data-name="Path 295" d="M417.93,348.9" transform="translate(-319.325 -247.297)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
@@ -25,6 +25,15 @@
             <path id="Path_302" data-name="Path 302" d="M176.34,89.33a10.222,10.222,0,0,0-4.088.563C170.123,86.819,166,81,166,81l3.906,10.657A12.258,12.258,0,0,0,167,97.052a4.711,4.711,0,0,1,4.137-2.52,5.47,5.47,0,0,1,4.137,2.357l8.422-1.138.117,5.132a3.012,3.012,0,0,1,2.211-1.027C186.058,98.6,182.727,89.817,176.34,89.33Z" transform="translate(-86.36)" fill="#3ecc28" />
             <path id="Path_303" data-name="Path 303" d="M311.693,333.32a4.213,4.213,0,0,1-2.235.935c-3.17.326-6.583-4.387-6.583-4.387l.04,2.154-5.283-1.217a3.208,3.208,0,0,0-3.089-2.275,5.893,5.893,0,0,1-1.056,2.926s0,1.219.051,4.416c3.219-1.111,7.834,1.107,8.078,1.514s.082,1.138-.812,2.032c1.869-.488,2.113-1.464,2.559-1.63a5.864,5.864,0,0,1,2.651-.019c3.341.383,2.674,1.972,1.536,2.7,1.951-.163,3.006-2.521,3.332-2.114.569.65-.327,2.459-.327,2.459a5.263,5.263,0,0,0,2.2-4C313.075,333.889,311.693,333.32,311.693,333.32Zm-3.21,2.644c-.643-.386-.465-1.284.244-.975a3.884,3.884,0,0,0,2.032-.081c.29-.056.275.346.081.569A1.968,1.968,0,0,1,308.483,335.965Z" transform="translate(-205.49 -229.153)" fill="#3ecc28" />
           </g>
+        </svg> -->
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 -19 122.1 168.3" style="enable-background:new 0 0 122.1 148.3;" xml:space="preserve">
+
+          <g id="bottom">
+            <path id="Path_363" class="st0" d="M85.6,53.4c-83-33.6-82.9,92.7-82.9,92.7C25.8,80.9,96.3,56,96.3,56L85.6,53.4z" />
+            <path id="Path_365" class="st1" d="M96.1,56c0,0-26.2-10.8-39.4-8.1c-11,12.3-17.4,28-18.1,44.5C38.6,92.4,64.9,67.5,96.1,56z" />
+          </g>
+          <path id="top" class="st2" d="M38.6,92.1c9.9-6.3,20.7-11,32.1-13.9c18.4-4.6,36.1-13.7,45.5-37.3c7.6-19.3,0-39.6,0-39.6
+	s-7.2,32-36.4,45.6S38.6,92.1,38.6,92.1z" />
         </svg>
       </div>
     </div>
@@ -32,7 +41,7 @@
     <div class="navigation d-none d-lg-block" :class="{active: deskMenuOpen}">
       <div class="header">
         <div class="site-logo" :class="{hover: hover}">
-          <svg @click="$emit('goHomeDesk')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
+          <!-- <svg @click="$emit('goHomeDesk')" xmlns="http://www.w3.org/2000/svg" width="35.31" height="30.665" viewBox="0 0 35.31 30.665">
             <g id="Group_182" data-name="Group 182" transform="translate(-72 -81)">
               <path id="Path_294" data-name="Path 294" d="M287.422,319.461" transform="translate(-198.854 -220.121)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
               <path id="Path_295" data-name="Path 295" d="M417.93,348.9" transform="translate(-319.325 -247.297)" fill="#3ecc28" stroke="#000" stroke-miterlimit="10" stroke-width="2" />
@@ -45,6 +54,15 @@
               <path id="Path_302" data-name="Path 302" d="M176.34,89.33a10.222,10.222,0,0,0-4.088.563C170.123,86.819,166,81,166,81l3.906,10.657A12.258,12.258,0,0,0,167,97.052a4.711,4.711,0,0,1,4.137-2.52,5.47,5.47,0,0,1,4.137,2.357l8.422-1.138.117,5.132a3.012,3.012,0,0,1,2.211-1.027C186.058,98.6,182.727,89.817,176.34,89.33Z" transform="translate(-86.36)" fill="#3ecc28" />
               <path id="Path_303" data-name="Path 303" d="M311.693,333.32a4.213,4.213,0,0,1-2.235.935c-3.17.326-6.583-4.387-6.583-4.387l.04,2.154-5.283-1.217a3.208,3.208,0,0,0-3.089-2.275,5.893,5.893,0,0,1-1.056,2.926s0,1.219.051,4.416c3.219-1.111,7.834,1.107,8.078,1.514s.082,1.138-.812,2.032c1.869-.488,2.113-1.464,2.559-1.63a5.864,5.864,0,0,1,2.651-.019c3.341.383,2.674,1.972,1.536,2.7,1.951-.163,3.006-2.521,3.332-2.114.569.65-.327,2.459-.327,2.459a5.263,5.263,0,0,0,2.2-4C313.075,333.889,311.693,333.32,311.693,333.32Zm-3.21,2.644c-.643-.386-.465-1.284.244-.975a3.884,3.884,0,0,0,2.032-.081c.29-.056.275.346.081.569A1.968,1.968,0,0,1,308.483,335.965Z" transform="translate(-205.49 -229.153)" fill="#3ecc28" />
             </g>
+          </svg> -->
+          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 -19 122.1 168.3" style="enable-background:new 0 0 122.1 148.3;" xml:space="preserve">
+
+            <g id="bottom">
+              <path id="Path_363" class="st0" d="M85.6,53.4c-83-33.6-82.9,92.7-82.9,92.7C25.8,80.9,96.3,56,96.3,56L85.6,53.4z" />
+              <path id="Path_365" class="st1" d="M96.1,56c0,0-26.2-10.8-39.4-8.1c-11,12.3-17.4,28-18.1,44.5C38.6,92.4,64.9,67.5,96.1,56z" />
+            </g>
+            <path id="top" class="st2" d="M38.6,92.1c9.9-6.3,20.7-11,32.1-13.9c18.4-4.6,36.1-13.7,45.5-37.3c7.6-19.3,0-39.6,0-39.6
+	s-7.2,32-36.4,45.6S38.6,92.1,38.6,92.1z" />
           </svg>
         </div>
       </div>
@@ -192,8 +210,16 @@ export default {
     visibility: hidden;
     opacity: 0;
   }
-  svg path {
-    fill: $white;
+
+  // change logo color when .hover applied
+  .st0 {
+    fill: #bbe4fd !important;
+  }
+  .st1 {
+    fill: #125884 !important;
+  }
+  .st2 {
+    fill: #2996db !important;
   }
 }
 
@@ -208,23 +234,53 @@ export default {
   left: 0;
   top: 0;
   z-index: 1000;
+
   .site-logo {
     position: absolute;
     top: 30px;
     width: 100%;
     z-index: 1000;
+
     svg {
       margin: auto;
       display: block;
-      width: 51.5px;
-      height: 41.73px;
+      width: auto;
+      height: 69px;
       cursor: pointer;
       transition: all 0.5s cubic-bezier(0, 0.1, 0.32, 1.01);
       @include break-min(992px) {
-        &:hover {
-          transform: translateX(8px);
+        &:hover #top {
+          animation-duration: 3s;
+          animation-name: animateLogo;
+          animation-iteration-count: infinite;
+          transform-origin: 60% 30%;
+          animation-timing-function: cubic-bezier(0.42, 0, 0, 0.99);
+        }
+
+        &:hover #Path_363 {
+          animation-duration: 3s;
+          animation-name: animateColor;
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(0.42, 0, 0, 0.99);
+        }
+
+        &:hover #Path_365 {
+          animation-duration: 3s;
+          animation-name: animateColorTwo;
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(0.42, 0, 0, 0.99);
         }
       }
+    }
+
+    .st0 {
+      fill: #bdc3c9;
+    }
+    .st1 {
+      fill: #3c853f;
+    }
+    .st2 {
+      fill: rgb(62, 204, 40);
     }
   }
 }
@@ -237,13 +293,23 @@ export default {
   height: 100%;
   background: $green;
   opacity: 0;
-  z-index: 999;
+  z-index: 1100;
   overflow: hidden;
   pointer-events: none;
   -webkit-transition: width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
     height 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s 0.5s;
   transition: width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
     height 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s 0.5s;
+
+  .st0 {
+    fill: #bbe4fd !important;
+  }
+  .st1 {
+    fill: #125884 !important;
+  }
+  .st2 {
+    fill: #2996db !important;
+  }
 
   .close-btn {
     width: 90px;
@@ -366,6 +432,50 @@ export default {
   }
   to {
     width: calc(100% + 20px);
+  }
+}
+
+////////// ******** Animation **********/////////////
+@keyframes animateLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-45deg);
+    fill: #ef5923;
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animateColor {
+  0% {
+    fill: #bdc3c9;
+  }
+
+  50% {
+    fill: #ed8c22;
+  }
+
+  100% {
+    fill: #bdc3c9;
+  }
+}
+
+@keyframes animateColorTwo {
+  0% {
+    fill: #3c853f;
+  }
+
+  50% {
+    fill: #cc4727;
+  }
+
+  100% {
+    fill: #3c853f;
   }
 }
 </style>
