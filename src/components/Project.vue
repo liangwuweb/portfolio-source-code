@@ -33,7 +33,8 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" :src="videoSrc" id="video" allow="accelerometer; autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" :class="{'d-none': videoSrc === null}" :src="videoSrc" id="video" allow="accelerometer; autoplay; encrypted-media" allowfullscreen></iframe>
+                    <img class="img-fluid image" :class="{'d-none': imageSrc === undefined}" :src="imageSrc != undefined ? require('@/assets/' + imageSrc) : ''">
                   </div>
                   <div class="close" @click="hideModal" aria-label="Close">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15.322" height="15.322" viewBox="0 0 15.322 15.322">
@@ -109,6 +110,7 @@ export default {
       projectTitle: "",
       description: "",
       videoSrc: "",
+      imageSrc: "",
       siteLink: "",
     };
   },
@@ -165,6 +167,7 @@ export default {
       this.projectTitle = project.name;
       this.description = project.description;
       this.videoSrc = project.videoSrc;
+      this.imageSrc = project.imageSrc;
       this.siteLink = project.siteLink;
       this.showVideoModal = true;
     },
@@ -328,6 +331,12 @@ export default {
         width: 6.34px;
         height: 12.78px;
       }
+    }
+
+    .image {
+      position: absolute;
+      top:0;
+      left:0;
     }
 
     .modal-body {

@@ -81,7 +81,7 @@
             </a>
           </div>
         </div>
-        <p class="fixed-bottom mb-4">2021 created by Liang. All rights reserved.</p>
+        <p class="fixed-bottom mb-4">{{ new Date().getFullYear() }} created by Liang. All rights reserved.</p>
       </div>
 
       <div class="close-btn">

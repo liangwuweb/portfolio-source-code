@@ -1,5 +1,133 @@
 [
+  {
+    "name": "Thomsen Group",
+    "image": "pump.jpg",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "250%"}
+    },
+    "description": "This is a full-stack web project for a factory website (It's during developing). I am developing this project both front-end and back-end, as well as database. Using Laravel framework.",
+    "videoSrc": null,
+    "imageSrc": "pump.jpg",
+    "siteLink": "https://thomsen.polaritydigital.net/"
+  },
+  {
+    "name": "Mend",
+    "image": "heroPanelBG3.jpg",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "100%"}
+    },
+    "description": "Developed the front-end of the entire project",
+    "videoSrc": null,
+    "imageSrc": "Yoga2.png",
+    "siteLink": "https://www.mendstudio.com/"
+  },
+  {
+    "name": "Turf Tenders",
+    "image": "lawn-bg-1200.png",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "250%"}
+    },
+    "description": "Developed the front-end of the entire project",
+    "videoSrc": null,
+    "imageSrc": "lawn-bg-1200.png",
+    "siteLink": "https://www.turftendersservice.com/"
+  },
     {
+    "name": "Reflective",
+    "image": "iStock-1189913170.png",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "150%"}
+    },
+    "description": "Developed the front-end of the entire project",
+    "videoSrc": null,
+    "imageSrc": "iStock-1189913170.png",
+    "siteLink": "https://www.reflectivecontracting.com/"
+  },
+  {
+    "name": "Law Enforcement Memorial",
+    "image": "banner-image-3.png",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center top"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "300%"}
+    },
+    "description": "Developed the front-end of the entire project",
+    "videoSrc": null,
+    "imageSrc": "banner-image-3.png",
+    "siteLink": "https://www.wlem.com/"
+  },
+    {
+    "name": "Kraverz",
+    "image": "kravez.png",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "100%"}
+    },
+    "description": "Homepage development.",
+    "videoSrc": null,
+    "imageSrc": "kravez2.png",
+    "siteLink": "https://www.kraverzcustard.com/"
+  },
+  {
+    "name": "CRYOFIT",
+    "image": "vit.jpg",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "100%"}
+    },
+    "description": "Update the front-end of homepage",
+    "videoSrc": null,
+    "imageSrc": "vit-injections-img.jpg",
+    "siteLink": "https://ivboosters.com/"
+  },
+  {
+    "name": "BGS Glass",
+    "image": "bgs.jpg",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "300%"}
+    },
+    "description": "Rebuild the homepage",
+    "videoSrc": null,
+    "imageSrc": "bgs.jpg",
+    "siteLink": "https://www.bgsglass.com/"
+  },
+  {
     "name": "UAVHQ",
     "image": "uavhq.jpg",
     "position": {

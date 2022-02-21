@@ -319,13 +319,16 @@ export default {
           color: $green;
         }
         @include break-min(768px) {
-          margin-right: 0px;
+          margin-right: px;
         }
       }
       .fa-linkedin-in {
         color: #10469b;
         &:hover {
           color: $green;
+        }
+        @include break-max(768px) {
+          margin-left: 30px;
         }
       }
 
