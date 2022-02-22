@@ -293,7 +293,7 @@ export default {
   height: 100%;
   background: $green;
   opacity: 0;
-  z-index: 1100;
+  z-index: 1000;
   overflow: hidden;
   pointer-events: none;
   -webkit-transition: width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
