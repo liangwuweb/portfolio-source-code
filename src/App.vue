@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <!-- <transition enter-active-class="animate__animated animate__slideInDown animate__faster" leave-active-class="animate__animated animate__slideOutUp">
+    <transition enter-active-class="animate__animated animate__slideInDown animate__faster" leave-active-class="animate__animated animate__slideOutUp">
       <div v-if="showLoader" class="loader justify-content-center d-flex align-items-center font-weight-bold text-dark">
         <spinner></spinner>
       </div>
-    </transition> -->
+    </transition>
 
     <background ref="child" @goHome="goHome" :loaderStatus="showLoader"></background>
     <!-- The main section will not render when showLoader is true -->
