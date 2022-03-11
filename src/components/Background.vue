@@ -17,7 +17,7 @@
           <path id="Path_303" data-name="Path 303" d="M311.693,333.32a4.213,4.213,0,0,1-2.235.935c-3.17.326-6.583-4.387-6.583-4.387l.04,2.154-5.283-1.217a3.208,3.208,0,0,0-3.089-2.275,5.893,5.893,0,0,1-1.056,2.926s0,1.219.051,4.416c3.219-1.111,7.834,1.107,8.078,1.514s.082,1.138-.812,2.032c1.869-.488,2.113-1.464,2.559-1.63a5.864,5.864,0,0,1,2.651-.019c3.341.383,2.674,1.972,1.536,2.7,1.951-.163,3.006-2.521,3.332-2.114.569.65-.327,2.459-.327,2.459a5.263,5.263,0,0,0,2.2-4C313.075,333.889,311.693,333.32,311.693,333.32Zm-3.21,2.644c-.643-.386-.465-1.284.244-.975a3.884,3.884,0,0,0,2.032-.081c.29-.056.275.346.081.569A1.968,1.968,0,0,1,308.483,335.965Z" transform="translate(-205.49 -229.153)" fill="#3ecc28" />
         </g>
       </svg> -->
-      <svg @click="$emit('goHomeDesk')" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 -19 122.1 168.3" style="enable-background:new 0 0 122.1 148.3;" xml:space="preserve">
+      <svg @click="$emit('goHome')" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 -19 122.1 168.3" style="enable-background:new 0 0 122.1 148.3;" xml:space="preserve">
 
         <g id="bottom">
           <path id="Path_363" class="st0" d="M85.6,53.4c-83-33.6-82.9,92.7-82.9,92.7C25.8,80.9,96.3,56,96.3,56L85.6,53.4z" />
@@ -26,7 +26,7 @@
         <path id="top" class="st2" d="M38.6,92.1c9.9-6.3,20.7-11,32.1-13.9c18.4-4.6,36.1-13.7,45.5-37.3c7.6-19.3,0-39.6,0-39.6
 	s-7.2,32-36.4,45.6S38.6,92.1,38.6,92.1z" />
       </svg>
-      <h6 class="font-weight-bold my-0" style="color: #3ecc28">
+      <h6 class="font-weight-bold my-0" style="color: rgb(96 207 51)">
         {{ navbarHeader }}
       </h6>
       <div class="nav-icon" :class="{ open: menuOpen }" @click="toggleMenu()">
@@ -40,11 +40,11 @@
 
     <div class="main">
       <div class="container-md">
-        <div class="social-icon d-block d-md-flex flex-column  justify-content-between" :class="positionObj">
-          <a href="https://www.facebook.com/profile.php?id=100006741066468" target="_blank">
+        <div class="social-icon d-block d-flex flex-md-column  justify-content-between" :class="positionObj">
+          <a class="facebook" href="https://www.facebook.com/profile.php?id=100006741066468" target="_blank">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
           </a>
-          <a href="https://www.linkedin.com/in/liang-wu-b16952149/" target="_blank">
+          <a class="linkedin" href="https://www.linkedin.com/in/liang-wu-b16952149/" target="_blank">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin-in' }" />
           </a>
         </div>
@@ -265,7 +265,7 @@ export default {
     @extend .navbar;
     top: 0;
     border: 0;
-    background: $black;
+    background: #ecf0f1;
     z-index: 668;
   }
 }
@@ -299,37 +299,56 @@ export default {
       @include break-min(768px) {
         right: 40px !important;
         left: auto !important;
-        height: 90px;
+        height: 114px;
         top: 50%;
         transform: translate(0%, -50%);
       }
 
       a {
-        width: 37px;
-        height: 37px;
-        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border-radius: 28%;
         background: #fff;
         position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 34px -5px rgb(0 0 0 / 10%);
+      }
+
+      a::before {
+        content: "";
+        width: 139%;
+        height: 139%;
+        position: absolute;
+        transform: rotate(45deg);
+        top: 90%;
+        left: -110%;
+      }
+
+      .facebook {
+        @include break-max(768px) {
+          margin-right: 15px;
+        }
+      }
+
+      .facebook::before {
+        background: #3b5998;
+      }
+
+      .linkedin::before {
+        background: #0e76a8;
       }
 
       .fa-facebook-f {
         margin-right: 30px;
-        color: #2887cc;
-        &:hover {
-          color: $green;
-        }
-        @include break-min(768px) {
-          margin-right: px;
-        }
+        color: #3b5998;
+        height: 1.2em;
+        width: auto;
       }
+
       .fa-linkedin-in {
-        color: #10469b;
-        &:hover {
-          color: $green;
-        }
-        @include break-max(768px) {
-          margin-left: 30px;
-        }
+        color: #0e76a8;
+        height: 1.2em;
+        width: auto;
       }
 
       .fa-facebook-f,
@@ -338,6 +357,29 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+      }
+
+      a,
+      a::before,
+      .fa-facebook-f,
+      .fa-linkedin-in {
+        transition: all 0.35s;
+        transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+      }
+
+      a:hover::before,
+      a:focus::before {
+        top: -20%;
+        left: -10%;
+      }
+
+      a:hover .fa-facebook-f,
+      a:hover .fa-linkedin-in,
+      a:focus .fa-facebook-f,
+      a:focus .fa-linkedin-in {
+        color: #fff;
+        width: auto;
+        height: 1.37em;
       }
     }
 

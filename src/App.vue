@@ -67,8 +67,8 @@ export default {
 
 <style lang="scss">
 body {
-  background: #292929;
-  background-image: radial-gradient(#247718 1.5px, transparent 1.5px);
+  background: #ecf0f1;
+  // background-image: radial-gradient(#247718 1.5px, transparent 1.5px);
   background-size: 30px 30px;
   background-position: center;
   /* Hide scrollbar for Chrome, Safari and Opera */

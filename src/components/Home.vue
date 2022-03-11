@@ -1,13 +1,13 @@
 <template>
-<transition enter-active-class="animate__animated animate__fadeIn">
-  <div v-if="showHome" class="homepage-wrap position-absolute w-100">
-    <div class="wrap d-flex align-items-center justify-content-center">
-      <h4 class="font-weight-bold">
-        Hi, I am <span style="color: #3ecc28">Liang Wu</span>
-      </h4>
+  <transition enter-active-class="animate__animated animate__fadeIn">
+    <div v-if="showHome" class="homepage-wrap position-absolute w-100">
+      <div class="wrap d-flex align-items-center justify-content-center">
+        <h4 class="font-weight-bold">
+          Hi, I am <span style="color: #3ecc28">Liang Wu</span>
+        </h4>
+      </div>
     </div>
-  </div>
-</transition>
+  </transition>
 </template>
 
 <script>
@@ -19,12 +19,12 @@ export default {
     };
   },
   components: {},
-  mounted(){
+  mounted() {
     const _this = this;
     setTimeout(function () {
       _this.showHome = !_this.showHome;
     }, 500);
-  }
+  },
 };
 </script>
 
@@ -47,8 +47,9 @@ export default {
     bottom: 0;
   }
 
-  @include break-min(992px) {
-    h4 {
+  h4 {
+    color: $mid-gray;
+    @include break-min(992px) {
       font-size: 1.8rem;
     }
   }

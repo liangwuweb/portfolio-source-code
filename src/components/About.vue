@@ -73,6 +73,7 @@ export default {
 
       p {
         line-height: 28px;
+        color: $dark-gray;
         span {
           font-family: 'Gotham Pro Bold';
           color: $green;

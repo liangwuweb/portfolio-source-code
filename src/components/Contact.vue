@@ -161,10 +161,10 @@ export default {
     .form-control {
       border: 0;
       border-radius: 0;
-      background: $dark-gray;
+      background: $mid-gray;
       color: #f5f5f5;
       font-size: 0.8rem;
-      font-family: 'Gotham Pro Regular';
+      font-family: "Gotham Pro Regular";
       padding: 1.25rem 0.75rem;
       @include break-min(768px) {
         padding: 1.5rem 0.75rem;
@@ -181,6 +181,7 @@ export default {
   .notes {
     margin-top: 130px;
     font-size: 0.9rem;
+    color: $mid-gray;
     @include break-min(992px) {
       margin-top: 74px;
     }
