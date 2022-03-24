@@ -41,9 +41,15 @@
       <!-- Content -->
       <div class="content d-flex justify-content-end" :class="{hide: deskMenuOpen === false}">
         <div class="menu-link">
-          <router-link class="nav-link font-weight-bold" to="/about"><span @click="$emit('pageShift')">About</span></router-link>
-          <router-link class="nav-link font-weight-bold" to="/project"><span @click="$emit('pageShift')">Project</span></router-link>
-          <router-link class="nav-link font-weight-bold" to="/contact"><span @click="$emit('pageShift')">Contact</span></router-link>
+          <router-link class="nav-link font-weight-bold" to="/about">
+            <span class="about" @click="$emit('pageShift')"><span>Ab</span><span>out</span></span>
+          </router-link>
+          <router-link class="nav-link font-weight-bold" to="/project">
+            <span class="project" @click="$emit('pageShift')"><span>Pro</span><span>ject</span></span>
+          </router-link>
+          <router-link class="nav-link font-weight-bold" to="/contact">
+            <span class="contact" @click="$emit('pageShift')"><span>Con</span><span>tact</span></span>
+          </router-link>
           <div class="nav-link d-flex">
             <a class="social-icon facebook mr-3" target="_blank" href="https://www.facebook.com/profile.php?id=100006741066468">
               <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
@@ -351,29 +357,63 @@ export default {
   }
 
   span {
-    position: relative;
+    // position: relative;
+    display: inline-block;
     font-size: 1.8rem;
+    transition: all 0.4s cubic-bezier(1, 0, 0.58, 0.97);
   }
 
-  //Strike through effects
-  span::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 3px;
-    top: 50%;
-    margin-top: -0.5px;
-    background: $black;
+  .about span:nth-child(1) {
+    position: relative;
+    z-index: 10;
   }
 
-  span::before {
-    left: -10px;
+  .about,
+  .project,
+  .contact {
+    transition: margin 0.4s cubic-bezier(1, 0, 0.58, 0.97);
   }
 
-  span:hover::before {
-    background: $black;
-    width: calc(100% + 20px);
-    transition: width 0.2s cubic-bezier(1, 0, 0.58, 0.97);
+  // parallel effects
+  .about:hover span:nth-child(1),
+  .about:focus span:nth-child(1) {
+    color: $dark-green;
+    transform: translate(7px, -7px);
+  }
+
+  .about:hover span:nth-child(2),
+  .about:focus span:nth-child(2) {
+    transform: translate(-22px, 2px);
+  }
+
+  .about:hover, .about:focus {
+    margin-bottom: 10px;
+  }
+
+  .project:hover span:nth-child(1),  .project:focus span:nth-child(1){
+    color: $dark-green;
+    transform: translate(10px, 7px);
+  }
+
+  .project:hover span:nth-child(2), .project:focus span:nth-child(2) {
+    transform: translate(-32px, -5px);
+  }
+
+  .project:hover, .project:focus {
+    margin: 10px 0;
+  }
+
+  .contact:hover span:nth-child(1), .contact:focus span:nth-child(1) {
+    transform: translate(10px, 7px);
+  }
+
+  .contact:hover span:nth-child(2), .contact:focus span:nth-child(2) {
+    color: $dark-green;
+    transform: translate(-32px, -5px);
+  }
+
+  .contact:hover, .contact:focus {
+    margin: 10px 0;
   }
 
   // Social media button
