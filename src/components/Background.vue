@@ -75,11 +75,12 @@ export default {
   computed: {
     positionObj: function () {
       return {
-        "icon-position": this.$route.path === "/about",
+        // hide social icon on about and project page
         remove:
-          this.$route.path != "/about" &&
-          this.$route.path != "/" &&
-          this.$route.path != "/contact",
+          (this.$route.path != "/about" &&
+            this.$route.path != "/" &&
+            this.$route.path != "/contact") ||
+          this.$route.path === "/about",
       };
     },
     navbarHeader: function () {

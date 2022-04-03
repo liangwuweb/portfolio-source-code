@@ -102,4 +102,8 @@ body {
 .no-scroll {
   overflow: hidden;
 }
+
+.flickity-button {
+  background: $green !important;
+}
 </style>
