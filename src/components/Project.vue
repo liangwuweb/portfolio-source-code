@@ -1,35 +1,27 @@
 <template>
-  <div class="project-wrap position-absolute w-100">
-    <div class="container px-md-0">
-      <div class="row mx-0">
-        <div class="col-lg-3 offset-lg-1 pl-0">
-          <h1 class="font-weight-bold header d-none d-lg-block text-left pl-lg-3 mb-4">Project</h1>
-        </div>
-      </div>
-      <!-- Video card -->
-      <transition-group @beforeEnter="beforeEnter" @enter="enter" class="row mx-0">
-        <div v-for="(project, index) in projects" :key="project.name" class="col-12 col-md-4 col-lg-3 video-card px-0" @click="showModal(project)" :data-index="index">
-          <div class="parent">
-            <div class="project" :style="[{
-            backgroundImage:
-              'url(' + require('@/assets/' + project.image) + ')'
-          },  project.staticPosition, project.resizePosition, project.staticSize, project.resizeSize]">
-            </div>
-          </div>
-          <div class="info d-flex justify-content-between align-items-baseline w-100 pt-2">
-            <span class="font-weight-bold">{{ project.name }}</span>
-            <svg id="nextbutton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.402 9.456">
-              <path id="Path_164" data-name="Path 164" d="M4.341,0,0,4.341,4.341,8.752" transform="translate(4.697 9.103) rotate(180)" fill="none" stroke="#f5f5f5" stroke-width="1" />
-            </svg>
-          </div>
-        </div>
-      </transition-group>
+  <div class="project-wrap position-absolute">
 
+    <div class="container-lg">
+      <div class="row">
+        <!-- <div class="col-lg-3 offset-lg-1 pl-0"> -->
+        <h1 class="font-weight-bold header d-none d-lg-block text-left mb-4">Project</h1>
+        <!-- </div> -->
+      </div>
+
+      <!-- Video card -->
+      <div class="row justify-content-center justify-content-lg-start">
+        <card v-for="(project, index) in projects" @showModal="showModal(project)" :data-image="require('@/assets/' + project.image)" :key="project.name" :data-index="index" >
+          <h1 slot="header">{{project.name}}</h1>
+        </card>
+      </div>
+
+      
       <!-- Modal -->
       <transition enter-active-class="animate__animated animate__fadeIn animate__faster" leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showVideoDialog = true">
-        <div v-if="showVideoModal" class="modal d-block" tabindex="-1" role="dialog">
+        <div v-if="showVideoModal" class="modal d-block" tabindex="-1" role="dialog" @click="closeModal($event)">
           <transition enter-active-class="animate__animated animate__fadeInDown animate__faster" leave-active-class="animate__animated animate__fadeOutUp animate__faster">
             <div v-if="showVideoDialog" class="modal-dialog mb-5" role="document">
+              
               <div class="modal-content">
                 <div class="modal-header">
                   <div class="embed-responsive embed-responsive-16by9">
@@ -99,6 +91,7 @@
 <script>
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import Card from "./Card";
 
 export default {
   name: "project",
@@ -116,6 +109,7 @@ export default {
   },
   components: {
     FontAwesomeIcon,
+    Card,
   },
   computed: {},
   methods: {
@@ -179,19 +173,16 @@ export default {
       this.showVideoModal = false;
       this.showVideoDialog = false;
     },
+    closeModal: function(event) {
+      if (event.target.classList[0] === 'modal') {
+        //alert('It\'s modal');
+        this.hideModal();
+      }
+    },
     lanuchSite: function () {
       window.open(this.siteLink, "_blank");
     },
-    beforeEnter: function (el) {
-      el.className = "d-none";
-    },
-    enter: function (el) {
-      var delay = el.dataset.index * 200;
-      setTimeout(function () {
-        el.className =
-          "video-card col-12 col-md-4 col-lg-3 px-0 animate__animated animate__fadeInUp";
-      }, delay);
-    },
+
   },
   mounted() {
     axios.get("./data/project-list.json").then((response) => {
@@ -224,8 +215,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.opacity-0 {
+  opacity: 0;
+  margin-top: 500px;
+}
+
 .project-wrap {
-  .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  .container-lg {
     margin-top: 87px;
     @include break-between(768px, 1199px) {
       margin-top: 100px;
@@ -235,7 +236,19 @@ export default {
     }
     .header {
       color: $green;
+      margin-left: 30px;
     }
+
+    .row {
+      @include break-min(1200px) {
+        margin-left: 50px;
+      }
+
+      @include break-between(992px, 1200px) {
+        margin-left: 100px;
+      }
+    }
+
     .video-card {
       margin-bottom: 35px;
       cursor: pointer;
@@ -335,8 +348,8 @@ export default {
 
     .image {
       position: absolute;
-      top:0;
-      left:0;
+      top: 0;
+      left: 0;
     }
 
     .modal-body {

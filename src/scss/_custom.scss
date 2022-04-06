@@ -8,11 +8,13 @@
 
 // Modal
 .modal {
+  cursor:pointer;
   overflow: auto;
   background-color: scale-color($bg-black, $alpha: -10%);
 }
 
 .modal-dialog {
+  cursor: default;
   width: calc(100% - 30px);
   margin: auto;
 
