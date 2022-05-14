@@ -50,6 +50,14 @@ export default {
       }, 500);
     },
   },
+  created() {
+    let gsap = document.createElement("script");
+    gsap.setAttribute(
+      "src",
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"
+    );
+    document.head.appendChild(gsap);
+  },
   mounted() {
     const _this = this;
     setTimeout(function () {
