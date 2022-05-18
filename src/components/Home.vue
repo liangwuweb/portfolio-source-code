@@ -9,12 +9,15 @@
         </span>
       </h4>
     </div>
+    <canvas id="c" :width="getWidth" :height="getHeight"></canvas>
   </div>
 
 </template>
 
 
 <script>
+import { Plus } from "../_Plus";
+
 export default {
   name: "home",
   data: function () {
@@ -27,10 +30,22 @@ export default {
       isDeleting: false,
       firstTypeValue: "",
       introString: "Hi, I am ",
+      signs: [],
+      mouse: { x: 0, y: 0 },
+      gridLength: 10,
+      mouseMoved: false,
+      mouseOver: false,
     };
   },
   components: {},
-  computed: {},
+  computed: {
+    getWidth: function () {
+      return window.innerWidth;
+    },
+    getHeight: function () {
+      return window.innerHeight;
+    },
+  },
   methods: {
     // This function produce the "Hi, I am " part
     firstTypeWriter: function () {
@@ -96,12 +111,38 @@ export default {
 
       setTimeout(this.typeWriter, typeSpeed);
     },
+    createGridArray: function (c) {
+      // For loop to create the grid array
+      for (let i = 0; i <= this.gridLength; i++) {
+        // create an empty array
+        this.signs[i] = [];
+
+        // create 9 Plus obj and put them in the empty array
+        for (let j = 0; j <= this.gridLength; j++) {
+          const sign = new Plus();
+
+          sign.left = (c.width / this.gridLength) * i;
+          sign.top = (c.height / this.gridLength) * j;
+
+          sign.width = 10;
+          sign.height = 10;
+
+          this.signs[i][j] = sign;
+        }
+      }
+    },
   },
   mounted() {
     // const _this = this;
     // setTimeout(function () {
     //   _this.showHome = !_this.showHome;
     // }, 500);
+
+    //console.log(plus);
+
+    const c = document.getElementById('c');
+    this.createGridArray(c);
+    console.log(this.signs)
 
     setTimeout(this.firstTypeWriter, 2000);
   },
@@ -143,6 +184,16 @@ export default {
 
     .txt-type > .txt {
       color: rgb(73, 207, 33);
+    }
+
+    canvas {
+      background: #ecf0f1;
+      touch-action: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
 
     @include break-min(992px) {
