@@ -151,8 +151,8 @@ export default {
 
 .desktop-navbar-background {
   @extend .desktop-navbar;
-  background: #ecf0f1;
-  z-index: -1;
+  //background: #ecf0f1;
+  z-index: 1;
 }
 
 .menu-text {

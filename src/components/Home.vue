@@ -9,7 +9,8 @@
         </span>
       </h4>
     </div>
-    <canvas id="c" :width="getWidth" :height="getHeight"></canvas>
+
+    <canvas ref="canvas" id="c" :width="getWidth" :height="getHeight"></canvas>
   </div>
 
 </template>
@@ -111,7 +112,9 @@ export default {
 
       setTimeout(this.typeWriter, typeSpeed);
     },
-    createGridArray: function (c) {
+    createGridArray() {
+      const c = this.$refs.canvas;
+      
       // For loop to create the grid array
       for (let i = 0; i <= this.gridLength; i++) {
         // create an empty array
@@ -131,6 +134,34 @@ export default {
         }
       }
     },
+    draw() {
+      // if (mouseOver && mouseMoved) {
+      //   caculateIconPosition();
+      //   mouseMoved = false;
+      // }
+
+      const c = this.$refs.canvas;
+      const ctx = c.getContext("2d");
+
+      // Clear canvas
+      ctx.clearRect(0, 0, c.width, c.height);
+      ctx.save();
+      // draw a 10 X 10 grid, with 8 X 8 icon grid in the middle
+      ctx.beginPath();
+
+      for (let i = 0; i <= this.gridLength; i++) {
+        for (let j = 0; j <= this.gridLength; j++) {
+          const sign = this.signs[i][j];
+          //console.log(sign);
+
+          sign.draw(ctx);
+        }
+      }
+      ctx.closePath();
+      ctx.restore();
+      ctx.strokeStyle = "#4caf50";
+      ctx.stroke();
+    },
   },
   mounted() {
     // const _this = this;
@@ -139,10 +170,23 @@ export default {
     // }, 500);
 
     //console.log(plus);
+    // Event Listener
+    // Use GSAP ticker to call draw function on every frame that will draw signs to the canvas
+    //TweenLite.ticker.addEventListener("tick", this.draw);
+    // c.addEventListener("mousemove", mouseMove);
+    // c.addEventListener("mouseleave", reset);
+    // c.addEventListener("mouseover", function () {
+    //   mouseOver = true;
+    // });
 
-    const c = document.getElementById('c');
-    this.createGridArray(c);
-    console.log(this.signs)
+    // canvas resize based on window resize
+    // window.addEventListener("resize", canvasResize);
+
+  
+    this.createGridArray();
+    console.log(this.signs);
+
+    TweenLite.ticker.addEventListener("tick", this.draw);
 
     setTimeout(this.firstTypeWriter, 2000);
   },
