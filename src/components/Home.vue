@@ -2,7 +2,7 @@
 
   <div v-if="showHome" class="homepage-wrap position-absolute w-100">
     <div class="wrap d-flex align-items-center justify-content-center">
-      <h4 class="font-weight-bold">
+      <h4 class="font-weight-bold d-inline-block">
         <span class="intro-txt">{{ firstTypeValue }}</span>
         <span ref="txtType" class="txt-type" data-wait="3000" data-words='["Liang Wu", "Full Stack Developer"]'>
           <span class="txt">{{ typeValue }}</span>
@@ -10,7 +10,7 @@
       </h4>
     </div>
 
-    <canvas ref="canvas" id="c" :width="getWidth" :height="getHeight"></canvas>
+    <canvas ref="canvas" @mousemove="mouseMove" @mouseover="handleMouseOver" @mouseleave="reset" id="c" :width="getWidth" :height="getHeight"></canvas>
   </div>
 
 </template>
@@ -114,7 +114,7 @@ export default {
     },
     createGridArray() {
       const c = this.$refs.canvas;
-      
+
       // For loop to create the grid array
       for (let i = 0; i <= this.gridLength; i++) {
         // create an empty array
@@ -134,11 +134,39 @@ export default {
         }
       }
     },
+    caculateIconPosition() {
+      for (let i = 0; i <= this.gridLength; i++) {
+        for (let j = 0; j <= this.gridLength; j++) {
+          const sign = this.signs[i][j];
+          let radius = 20;
+          const dx = this.mouse.x - sign.left;
+          const dy = this.mouse.y - sign.top;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const angle = Math.atan2(dy, dx);
+
+          if (dist < radius) {
+            radius = dist;
+            TweenMax.to(sign, 0.3, {
+              scale: 2,
+            });
+          } else {
+            TweenMax.to(sign, 0.3, {
+              scale: 1,
+            });
+          }
+
+          TweenMax.to(sign, 0.3, {
+            x: Math.cos(angle) * radius,
+            y: Math.sin(angle) * radius,
+          });
+        }
+      }
+    },
     draw() {
-      // if (mouseOver && mouseMoved) {
-      //   caculateIconPosition();
-      //   mouseMoved = false;
-      // }
+      if (this.mouseOver && this.mouseMoved) {
+        this.caculateIconPosition();
+        this.mouseMoved = false;
+      }
 
       const c = this.$refs.canvas;
       const ctx = c.getContext("2d");
@@ -162,6 +190,44 @@ export default {
       ctx.strokeStyle = "#4caf50";
       ctx.stroke();
     },
+
+    mouseMove(e) {
+      //console.log(e);
+      const c = this.$refs.canvas;
+      const rect = c.getBoundingClientRect();
+      this.mouse.x = e.clientX - rect.left;
+      this.mouse.y = e.clientY - rect.top;
+      console.log(this.mouse);
+      this.mouseMoved = true;
+    },
+    handleMouseOver() {
+      this.mouseOver = true;
+    },
+    reset() {
+      this.mouseOver = false;
+      for (let i = 0; i <= this.gridLength; i++) {
+        for (let j = 0; j <= this.gridLength; j++) {
+          const sign = this.signs[i][j];
+          TweenMax.to(sign, 0.3, {
+            x: 0,
+            y: 0,
+            scale: 1,
+          });
+        }
+      }
+    },
+    canvasResize() {
+      const c = this.$refs.canvas;
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      for (let i = 0; i <= this.gridLength; i++) {
+        for (let j = 0; j <= this.gridLength; j++) {
+          const sign = this.signs[i][j];
+          sign.left = (c.width / this.gridLength) * i;
+          sign.top = (c.height / this.gridLength) * j;
+        }
+      }
+    },
   },
   mounted() {
     // const _this = this;
@@ -169,24 +235,17 @@ export default {
     //   _this.showHome = !_this.showHome;
     // }, 500);
 
+    const c = this.$refs.canvas;
     //console.log(plus);
     // Event Listener
     // Use GSAP ticker to call draw function on every frame that will draw signs to the canvas
-    //TweenLite.ticker.addEventListener("tick", this.draw);
-    // c.addEventListener("mousemove", mouseMove);
-    // c.addEventListener("mouseleave", reset);
-    // c.addEventListener("mouseover", function () {
-    //   mouseOver = true;
-    // });
+    TweenLite.ticker.addEventListener("tick", this.draw);
 
     // canvas resize based on window resize
-    // window.addEventListener("resize", canvasResize);
+    window.addEventListener("resize", this.canvasResize);
 
-  
     this.createGridArray();
     console.log(this.signs);
-
-    TweenLite.ticker.addEventListener("tick", this.draw);
 
     setTimeout(this.firstTypeWriter, 2000);
   },
@@ -201,11 +260,20 @@ export default {
   right: 0;
   bottom: 0;
 
+  canvas {
+    touch-action: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
   .wrap {
     width: inherit;
     height: 100%;
     z-index: 666;
-    position: absolute;
+    //position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -228,16 +296,6 @@ export default {
 
     .txt-type > .txt {
       color: rgb(73, 207, 33);
-    }
-
-    canvas {
-      background: #ecf0f1;
-      touch-action: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
     }
 
     @include break-min(992px) {
