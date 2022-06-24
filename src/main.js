@@ -3,10 +3,10 @@ import App from "./App.vue";
 import VueRouter from "vue-router";
 import "animate.css/animate.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faFacebookF, faLinkedinIn, faFacebookSquare, faLinkedin} from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faLinkedinIn, faFacebookSquare, faLinkedin, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {faChevronRight, faArrowRight, faArrowLeft, faSpinner} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faFacebookF, faLinkedinIn, faFacebookSquare,faLinkedin, faChevronRight,faArrowRight, faArrowLeft, faSpinner);
+library.add(faFacebookF, faLinkedinIn, faFacebookSquare, faLinkedin, faGithub, faChevronRight,faArrowRight, faArrowLeft, faSpinner);
 
 import Home from "./components/Home";
 import About from "./components/About";

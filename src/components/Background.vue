@@ -41,8 +41,8 @@
     <div class="main">
       <div class="container-md">
         <div class="social-icon d-block d-flex flex-md-column  justify-content-between" :class="positionObj">
-          <a class="facebook" href="https://www.facebook.com/profile.php?id=100006741066468" target="_blank">
-            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
+          <a class="github" href="https://github.com/liangwuweb" target="_blank">
+            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'github' }" />
           </a>
           <a class="linkedin" href="https://www.linkedin.com/in/liang-wu-b16952149/" target="_blank">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin-in' }" />
@@ -331,18 +331,29 @@ export default {
         }
       }
 
-      .facebook::before {
-        background: #3b5998;
+      // .facebook::before {
+      //   background: #3b5998;
+      // }
+
+      .github::before {
+        background: #161617;
       }
 
       .linkedin::before {
         background: #0e76a8;
       }
 
-      .fa-facebook-f {
+      // .fa-facebook-f {
+      //   margin-right: 30px;
+      //   color: #3b5998;
+      //   height: 1.2em;
+      //   width: auto;
+      // }
+
+      .fa-github {
         margin-right: 30px;
-        color: #3b5998;
-        height: 1.2em;
+        color: #161617;
+        height: 1.3em;
         width: auto;
       }
 
@@ -352,7 +363,7 @@ export default {
         width: auto;
       }
 
-      .fa-facebook-f,
+      .fa-github,
       .fa-linkedin-in {
         position: absolute;
         top: 50%;
@@ -362,7 +373,7 @@ export default {
 
       a,
       a::before,
-      .fa-facebook-f,
+      .fa-github,
       .fa-linkedin-in {
         transition: all 0.35s;
         transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
@@ -374,13 +385,21 @@ export default {
         left: -10%;
       }
 
-      a:hover .fa-facebook-f,
-      a:hover .fa-linkedin-in,
-      a:focus .fa-facebook-f,
-      a:focus .fa-linkedin-in {
+      @mixin hover-effects {
         color: #fff;
         width: auto;
+      }
+
+      a:hover .fa-linkedin-in,
+      a:focus .fa-linkedin-in {
         height: 1.37em;
+        @include hover-effects();
+      }
+
+      a:hover .fa-github,
+      a:focus .fa-github {
+        height: 1.4em;
+        @include hover-effects();
       }
     }
 
