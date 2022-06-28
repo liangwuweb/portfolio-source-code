@@ -163,6 +163,10 @@ export default {
       }
     },
     draw() {
+      // Prevent the func excute in other components
+      if (this.$route.path != '/') 
+        return;
+
       if (this.mouseOver && this.mouseMoved) {
         this.caculateIconPosition();
         this.mouseMoved = false;
@@ -197,7 +201,7 @@ export default {
       const rect = c.getBoundingClientRect();
       this.mouse.x = e.clientX - rect.left;
       this.mouse.y = e.clientY - rect.top;
-      console.log(this.mouse);
+      // console.log(this.mouse);
       this.mouseMoved = true;
     },
     handleMouseOver() {
@@ -235,17 +239,19 @@ export default {
     //   _this.showHome = !_this.showHome;
     // }, 500);
 
-    const c = this.$refs.canvas;
-    //console.log(plus);
-    // Event Listener
-    // Use GSAP ticker to call draw function on every frame that will draw signs to the canvas
-    TweenLite.ticker.addEventListener("tick", this.draw);
+    
+      const c = this.$refs.canvas;
+      //console.log(plus);
+      // Event Listener
+      // Use GSAP ticker to call draw function on every frame that will draw signs to the canvas
+      TweenLite.ticker.addEventListener("tick", this.draw);
 
-    // canvas resize based on window resize
-    window.addEventListener("resize", this.canvasResize);
+      // canvas resize based on window resize
+      window.addEventListener("resize", this.canvasResize);
 
-    this.createGridArray();
-    console.log(this.signs);
+      this.createGridArray();
+      // console.log(this.signs);
+    
 
     setTimeout(this.firstTypeWriter, 2000);
   },
