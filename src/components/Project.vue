@@ -164,6 +164,16 @@ export default {
       this.imageSrc = project.imageSrc;
       this.siteLink = project.siteLink;
       this.showVideoModal = true;
+      
+      // get the id of this project, using the id to find the index of the project in the projects array
+      const projectId = project.id;
+      const currentIndex = Number(this.projects.findIndex((item) => item.id === project.id));
+      //console.log(Number(currentIndex) - 1)
+
+      // get prev and next index
+      const prevIndex = Number(currentIndex) - 1;
+      const nextIndex = Number(currentIndex) + 1;
+      console.log(`Prev index: ${prevIndex}; Next index ${nextIndex}`)
     },
     hideModal: function () {
       this.projectTitle = "";
