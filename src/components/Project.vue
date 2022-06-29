@@ -10,18 +10,17 @@
 
       <!-- Video card -->
       <div class="row justify-content-center justify-content-lg-start">
-        <card v-for="(project, index) in projects" @showModal="showModal(project)" :data-image="require('@/assets/' + project.image)" :key="project.name" :data-index="index" >
+        <card v-for="(project, index) in projects" @showModal="showModal(project)" :data-image="require('@/assets/' + project.image)" :key="project.name" :data-index="index">
           <h1 slot="header">{{project.name}}</h1>
         </card>
       </div>
 
-      
       <!-- Modal -->
       <transition enter-active-class="animate__animated animate__fadeIn animate__faster" leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showVideoDialog = true">
         <div v-if="showVideoModal" class="modal d-block" tabindex="-1" role="dialog" @click="closeModal($event)">
           <transition enter-active-class="animate__animated animate__fadeInDown animate__faster" leave-active-class="animate__animated animate__fadeOutUp animate__faster">
             <div v-if="showVideoDialog" class="modal-dialog mb-5" role="document">
-              
+
               <div class="modal-content">
                 <div class="modal-header">
                   <div class="embed-responsive embed-responsive-16by9">
@@ -51,30 +50,14 @@
 
                 </div>
                 <div class="modal-footer">
-                  <div class="anchor position-absolute d-flex justify-content-center">
-                    <transition enter-active-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
-                      <popover name="first" class="position-absolute">
-                        Woops, Wu is working on this feature
-                        <font-awesome-icon :icon="{prefix: 'fa', iconName:'spinner'}" spin />
-                      </popover>
-                    </transition>
-                  </div>
-
-                  <div v-popover.top="{ name: 'first'}" class="btn btn-primary btn-switch font-weight-bold">
+                  <div class="btn btn-primary btn-switch font-weight-bold">
                     <font-awesome-icon :icon="{prefix: 'fa', iconName: 'arrow-left'}" transform="grow-4" :style="{marginRight: '10px', marginTop: '-2px'}" />
                     PREV
                   </div>
 
                   <span class="line m-0 position-absolute"></span>
-                  <div class="anchor-2 position-absolute d-flex justify-content-center">
-                    <transition enter-active-class="animate__animated animate__bounceIn" leave-active-class="animate__animated animate__bounceOut">
-                      <popover name="second" class="position-absolute">
-                        Woops, Wu is working on this feature
-                        <font-awesome-icon :icon="{prefix: 'fa', iconName:'spinner'}" spin />
-                      </popover>
-                    </transition>
-                  </div>
-                  <div v-popover.top="{ name: 'second'}" class="btn btn-primary btn-switch font-weight-bold">
+
+                  <div @click="goNext" class="btn btn-primary btn-switch font-weight-bold">
                     NEXT
                     <font-awesome-icon :icon="{prefix: 'fa', iconName: 'arrow-right'}" transform="grow-4" :style="{marginLeft: '10px', marginTop: '-2px'}" />
                   </div>
@@ -100,11 +83,14 @@ export default {
       projects: [],
       showVideoModal: false,
       showVideoDialog: false,
+      projectId: null,
       projectTitle: "",
       description: "",
       videoSrc: "",
       imageSrc: "",
       siteLink: "",
+      prev: [],
+      next: [],
     };
   },
   components: {
@@ -158,22 +144,15 @@ export default {
       }
     },
     showModal: function (project) {
+      this.projectId = project.id;
       this.projectTitle = project.name;
       this.description = project.description;
       this.videoSrc = project.videoSrc;
       this.imageSrc = project.imageSrc;
       this.siteLink = project.siteLink;
       this.showVideoModal = true;
-      
-      // get the id of this project, using the id to find the index of the project in the projects array
-      const projectId = project.id;
-      const currentIndex = Number(this.projects.findIndex((item) => item.id === project.id));
-      //console.log(Number(currentIndex) - 1)
 
-      // get prev and next index
-      const prevIndex = Number(currentIndex) - 1;
-      const nextIndex = Number(currentIndex) + 1;
-      console.log(`Prev index: ${prevIndex}; Next index ${nextIndex}`)
+      this.setPrevNext();
     },
     hideModal: function () {
       this.projectTitle = "";
@@ -182,9 +161,11 @@ export default {
       this.siteLink = "";
       this.showVideoModal = false;
       this.showVideoDialog = false;
+      this.prev = [];
+      this.next = [];
     },
-    closeModal: function(event) {
-      if (event.target.classList[0] === 'modal') {
+    closeModal: function (event) {
+      if (event.target.classList[0] === "modal") {
         //alert('It\'s modal');
         this.hideModal();
       }
@@ -192,7 +173,47 @@ export default {
     lanuchSite: function () {
       window.open(this.siteLink, "_blank");
     },
+    setPrevNext: function() {
+      // get the id of this project, using the id to find the index of the project in the projects array
+      const projectId = this.projectId;
+      const currentIndex = Number(
+        this.projects.findIndex((item) => item.id === projectId)
+      );
+      //console.log(Number(currentIndex) - 1)
 
+      // get prev and next index
+      const prevIndex = Number(currentIndex) - 1;
+      const nextIndex = Number(currentIndex) + 1;
+      console.log(`Prev index: ${prevIndex}; Next index ${nextIndex}`);
+
+      // store prev and next object into array
+      const prevItem = this.projects[prevIndex];
+      const nextItem = this.projects[nextIndex];
+      //console.log(prevItem, nextItem);
+      // Check if prev and next array are empty
+      if (this.prev.length === 0 && this.next.length === 0) {
+        console.log("both prev and next are empty");
+        // If empty, push item to both array
+        this.prev.push(prevItem);
+        this.next.push(nextItem);
+      } else {
+        this.prev = [];
+        this.next = [];
+        this.prev.push(prevItem);
+        this.next.push(nextItem);
+      }
+    },
+    goNext: function () {
+      //console.log(this.next[0])
+      this.projectId = this.next[0].id;
+      this.projectTitle = this.next[0].name;
+      this.description = this.next[0].description;
+      this.videoSrc = this.next[0].videoSrc;
+      this.imageSrc = this.next[0].imageSrc;
+      this.siteLink = this.next[0].siteLink;
+
+      this.setPrevNext();
+    }
   },
   mounted() {
     axios.get("./data/project-list.json").then((response) => {
@@ -416,32 +437,33 @@ export default {
   }
 }
 
-[data-popover="first"] {
-  &::before {
-    border-top: 6px solid $bg-black !important;
-  }
-  font-weight: 700;
-  background: $bg-black;
-  color: $green;
-  font-size: 0.8rem;
-  padding: 10px 30px;
-  border-radius: 17px;
-  top: auto !important;
-  left: auto !important;
-}
+// [data-popover="first"] {
+//   &::before {
+//     border-top: 6px solid $bg-black !important;
+//   }
+//   font-weight: 700;
+//   background: $bg-black;
+//   color: $green;
+//   font-size: 0.8rem;
+//   padding: 10px 30px;
+//   border-radius: 17px;
+//   top: auto !important;
+//   left: auto !important;
+// }
 
-[data-popover="second"] {
-  @extend [data-popover="first"];
-}
+// [data-popover="second"] {
+//   @extend [data-popover="first"];
+// }
 
-@include break-max(575px) {
-  [data-popover="first"] {
-    width: 140px !important;
-    padding: 10px 20px;
-  }
+// @include break-max(575px) {
+//   [data-popover="first"] {
+//     width: 140px !important;
+//     padding: 10px 20px;
+//   }
 
-  [data-popover="second"] {
-    @extend [data-popover="first"];
-  }
-}
+//   [data-popover="second"] {
+//     @extend [data-popover="first"];
+//   }
+// }
 </style>
+
