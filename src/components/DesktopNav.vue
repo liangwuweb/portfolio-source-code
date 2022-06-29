@@ -51,8 +51,8 @@
             <span class="contact" @click="$emit('pageShift')"><span>Con</span><span>tact</span></span>
           </router-link>
           <div class="nav-link d-flex">
-            <a class="social-icon facebook mr-3" target="_blank" href="https://www.facebook.com/profile.php?id=100006741066468">
-              <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }" />
+            <a class="social-icon github mr-3" target="_blank" href="https://github.com/liangwuweb">
+              <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'github' }" />
             </a>
             <a class="social-icon linkedin" target="_blank" href="https://www.linkedin.com/in/liang-wu-b16952149/">
               <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin-in' }" />
@@ -427,22 +427,23 @@ export default {
     box-shadow: 0 5px 34px -5px rgb(0 0 0 / 10%);
   }
 
-  .fa-facebook-f,
+  .fa-github,
   .fa-linkedin-in {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 1em;
     width: auto;
   }
 
-  .fa-facebook-f {
-    color: #3b5998;
+  .fa-github {
+    color: #161617;
+    height: 1.05em;
   }
 
   .fa-linkedin-in {
     color: #0e76a8;
+    height: 1em;
   }
 
   .social-icon::before {
@@ -455,8 +456,8 @@ export default {
     left: -110%;
   }
 
-  .facebook::before {
-    background: #3b5998;
+  .github::before {
+    background: #161617;
   }
 
   .linkedin::before {
@@ -466,7 +467,7 @@ export default {
   // Social button hover effect
   .social-icon,
   .social-icon::before,
-  .fa-facebook-f,
+  .fa-github,
   .fa-linkedin-in {
     transition: all 0.35s;
     transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
@@ -478,9 +479,9 @@ export default {
     left: -10%;
   }
 
-  .social-icon:hover .fa-facebook-f,
+  .social-icon:hover .fa-github,
   .social-icon:hover .fa-linkedin-in,
-  .social-icon:focus .fa-facebook-f,
+  .social-icon:focus .fa-github,
   .social-icon:focus .fa-linkedin-in {
     color: #fff;
     width: auto;
