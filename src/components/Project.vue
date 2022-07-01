@@ -50,7 +50,7 @@
 
                 </div>
                 <div class="modal-footer">
-                  <div class="btn btn-primary btn-switch font-weight-bold">
+                  <div @click="goPrev" class="btn btn-primary btn-switch font-weight-bold">
                     <font-awesome-icon :icon="{prefix: 'fa', iconName: 'arrow-left'}" transform="grow-4" :style="{marginRight: '10px', marginTop: '-2px'}" />
                     PREV
                   </div>
@@ -182,9 +182,15 @@ export default {
       //console.log(Number(currentIndex) - 1)
 
       // get prev and next index
-      const prevIndex = Number(currentIndex) - 1;
-      const nextIndex = Number(currentIndex) + 1;
+      let prevIndex = Number(currentIndex) - 1;
+      let nextIndex = Number(currentIndex) + 1;
       console.log(`Prev index: ${prevIndex}; Next index ${nextIndex}`);
+
+      // If nextIndex > max index, map it to start index，use remainder to caculate 
+      if (nextIndex > (this.projects.length - 1)) {
+        nextIndex = nextIndex % this.projects.length;
+        console.log(`real nextIndex: ${nextIndex}`)
+      }
 
       // store prev and next object into array
       const prevItem = this.projects[prevIndex];
@@ -211,6 +217,16 @@ export default {
       this.videoSrc = this.next[0].videoSrc;
       this.imageSrc = this.next[0].imageSrc;
       this.siteLink = this.next[0].siteLink;
+
+      this.setPrevNext();
+    },
+    goPrev: function() {
+      this.projectId = this.prev[0].id;
+      this.projectTitle = this.prev[0].name;
+      this.description = this.prev[0].description;
+      this.videoSrc = this.prev[0].videoSrc;
+      this.imageSrc = this.prev[0].imageSrc;
+      this.siteLink = this.prev[0].siteLink;
 
       this.setPrevNext();
     }
