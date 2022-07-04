@@ -192,6 +192,31 @@ export default {
         console.log(`real nextIndex: ${nextIndex}`)
       }
 
+      // If prevIndex < 0, map it last item, use remainder to caculate
+      if (prevIndex < 0) {
+        const reminder = Math.abs(prevIndex % this.projects.length);
+        const maxIndex = this.projects.length - 1;
+        console.log('reminder: ' + reminder + `; array length: ${this.projects.length}`);
+
+        // Check if max_index (array without 0) has even or odd item
+        if (maxIndex % 2) {
+          // Odd
+          // caculate middle number in the array, using n?阶加
+          
+          // const termial = (maxIndex * (maxIndex + 1)) / 2;
+          // const middleNum = termial / maxIndex;
+          // console.log('middleNum: ' + middleNum);
+          // prevIndex = reminder + ((middleNum - reminder) * 2);
+          // console.log(`PrevIndex is ${prevIndex}`)
+        } else {
+          // Even
+          console.log('it\'s even')
+          const middleNum = maxIndex / 2;
+          prevIndex = reminder + ((middleNum - reminder) * 2 + 1);
+          console.log(`PrevIndex is ${prevIndex}`)
+        }
+      }
+
       // store prev and next object into array
       const prevItem = this.projects[prevIndex];
       const nextItem = this.projects[nextIndex];
