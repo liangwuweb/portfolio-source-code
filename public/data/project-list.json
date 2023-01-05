@@ -1,8 +1,8 @@
 [
-  {
+    {
     "id": 1, 
-    "name": "Thomsen Group",
-    "image": "pump.jpg",
+    "name": "Rames",
+    "image": "ramses-logo.svg",
     "position": {
       "sm": {"background-position": "center 40%"},
       "md": {"background-position": "center center"}
@@ -11,11 +11,12 @@
       "sm": {"background-size": "100%"},
       "md": {"background-size": "250%"}
     },
-    "description": "This is a full-stack web project for a factory website (It's during developing). I am developing this project both front-end and back-end, as well as database. Using Laravel framework.",
+    "description": "This is a MERN stack web project on github. I am Collaborate with a team on this project. I am responsible for creating react components, REST APIs with TypeScript. Work on various e-commerce module includes checkout, product, user authentication and localization.",
     "videoSrc": null,
-    "imageSrc": "pump.jpg",
-    "siteLink": "https://thomsen.polaritydigital.net/"
+    "imageSrc": "ramses-logo.svg",
+    "siteLink": "https://ramses1.com/"
   },
+
   {
     "id": 2,
     "name": "Mend",
@@ -134,6 +135,23 @@
     "videoSrc": null,
     "imageSrc": "bgs.jpg",
     "siteLink": "https://www.bgsglass.com/"
+  },
+    {
+    "id": 1, 
+    "name": "Thomsen Group",
+    "image": "pump.jpg",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "250%"}
+    },
+    "description": "This is a full-stack web project for a factory website (It's during developing). I am developing this project both front-end and back-end, as well as database. Using Laravel framework.",
+    "videoSrc": null,
+    "imageSrc": "pump.jpg",
+    "siteLink": "https://thomsen.polaritydigital.net/"
   },
   {
     "id": 9,
