@@ -1,0 +1,51 @@
+[
+  {
+    "id": 8, 
+    "name": "Thomsen Group",
+    "image": "pump.jpg",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "250%"}
+    },
+    "description": "This is a full-stack web project for a factory website (It's during developing). I am developing this project both front-end and back-end, as well as database. Using Laravel framework.",
+    "videoSrc": null,
+    "imageSrc": "pump.jpg",
+    "siteLink": "https://thomsen.polaritydigital.net/"
+  },
+  {
+    "id": 9,
+    "name": "UAVHQ",
+    "image": "uavhq.jpg",
+    "position": {
+      "sm": {"background-position": "center 40%"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "420%"}
+    },
+    "description": "This is a large project that I am currently working on. It’s a website for a drone racing business. It’s still under development and not hosted yet. It’s a full-stack project. I used Sass, jQuery, Bootstrap to build the front-end. We plan to use Laravel (a PHP framework) for back-end development.",
+    "videoSrc": "https://www.youtube.com/embed/XC-_fA_EHdc",
+    "siteLink": "http://stoutinternational.xyz/"
+  },
+  {
+    "id": 10,
+    "name": "Stout Global",
+    "image": "stout.jpg",
+    "position": {
+      "sm": {"background-position": "center center"},
+      "md": {"background-position": "center center"}
+    },
+    "size": {
+      "sm": {"background-size": "100%"},
+      "md": {"background-size": "420%"}
+    },
+    "description": "Stout Global is a Content Management System created for users to create user-generated content (UGC). I designed and developed this project for my master thesis. It has a front-page to display UGC and a back-end dashboard for users to create content. In this project, I used PHP to develop the server-side logic and MySQL to insert data into the database. JavaScript and CSS were used to render the data fetched from the database. Feel free to use this username (Juez1986) and password (TBVc!dD6AE8MdPm) to login into the dashboard and try something out.",
+    "videoSrc": "https://www.youtube.com/embed/zelGBACR5Iw",
+    "siteLink": "http://stoutinternational.xyz/"
+  },
+]
