@@ -1,4 +1,5 @@
 # portfolio
+Soure code for my personal website built with Vue.js
 
 ## Project setup
 ```
