@@ -1,6 +1,10 @@
 <template>
-  <div class="card-wrap" @click="$emit('showModal')" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="card">
+  <div class="card-wrap" @click="$emit('showModal')" @mousemove="handleMouseMove" @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave" ref="card">
     <div class="card" :style="cardStyle">
+      <div class="tag" :class="statusClass">
+        {{ status }}
+      </div>
       <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
       <div class="card-info">
         <slot name="header"></slot>
@@ -13,7 +17,7 @@
 <script>
 export default {
   name: "card",
-  props: ["dataImage"],
+  props: ["dataImage", "status"],
   data: function () {
     return {
       width: 0,
@@ -49,6 +53,10 @@ export default {
         backgroundImage: `url(${this.dataImage})`,
       };
     },
+    statusClass() {
+      // Conditionally apply a class based on the status prop
+      return this.status === "completed" ? "bg-green" : "bg-red";
+    }
   },
   methods: {
     handleMouseMove: function (e) {
@@ -119,15 +127,18 @@ h1 {
     .card-info {
       transition: 0.6s $hoverEasing;
     }
+
     .card-info:after {
       transition: 5s $hoverEasing;
       opacity: 1;
       transform: translateY(0);
     }
+
     .card-bg {
       transition: 0.6s $hoverEasing, opacity 5s $hoverEasing;
       opacity: 0.8;
     }
+
     .card {
       transition: 0.6s $hoverEasing, box-shadow 2s $hoverEasing;
       box-shadow: rgba($green, 0.2) 0 0 40px 5px, rgba($green, 1) 0 0 0 3px,
@@ -186,11 +197,9 @@ h1 {
     z-index: 0;
     width: 100%;
     height: 130%;
-    background-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(#000, 0.6) 100%
-    );
+    background-image: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(#000, 0.6) 100%);
     background-blend-mode: overlay;
     opacity: 0;
     transform: translateY(100%);
@@ -204,5 +213,24 @@ h1 {
   font-size: 13px;
   font-weight: 700;
   text-shadow: rgba(black, 0.5) 0 10px 10px;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #60cf33;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  z-index: 666;
+}
+
+.bg-red {
+  background-color: #cf6a33;
+}
+
+.bg-green {
+  background-color: #60cf33;
 }
 </style>

@@ -10,7 +10,8 @@
       </h4>
     </div>
 
-    <canvas ref="canvas" @mousemove="mouseMove" @mouseover="handleMouseOver" @mouseleave="reset" id="c" :width="getWidth" :height="getHeight"></canvas>
+    <canvas ref="canvas" @mousemove="mouseMove" @mouseover="handleMouseOver" @mouseleave="reset" id="c"
+      :width="getWidth" :height="getHeight"></canvas>
   </div>
 
 </template>
@@ -164,7 +165,7 @@ export default {
     },
     draw() {
       // Prevent the func excute in other components
-      if (this.$route.path != '/') 
+      if (this.$route.path != '/')
         return;
 
       if (this.mouseOver && this.mouseMoved) {
@@ -239,19 +240,19 @@ export default {
     //   _this.showHome = !_this.showHome;
     // }, 500);
 
-    
-      const c = this.$refs.canvas;
-      //console.log(plus);
-      // Event Listener
-      // Use GSAP ticker to call draw function on every frame that will draw signs to the canvas
-      TweenLite.ticker.addEventListener("tick", this.draw);
 
-      // canvas resize based on window resize
-      window.addEventListener("resize", this.canvasResize);
+    const c = this.$refs.canvas;
+    //console.log(plus);
+    // Event Listener
+    // Use GSAP ticker to call draw function on every frame that will draw signs to the canvas
+    TweenLite.ticker.addEventListener("tick", this.draw);
 
-      this.createGridArray();
-      // console.log(this.signs);
-    
+    // canvas resize based on window resize
+    window.addEventListener("resize", this.canvasResize);
+
+    this.createGridArray();
+    // console.log(this.signs);
+
 
     setTimeout(this.firstTypeWriter, 2000);
   },
@@ -300,7 +301,7 @@ export default {
       position: absolute;
     }
 
-    .txt-type > .txt {
+    .txt-type>.txt {
       color: rgb(73, 207, 33);
     }
 

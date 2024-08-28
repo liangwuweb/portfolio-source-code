@@ -1,49 +1,30 @@
 <template>
   <div class="contact-wrap">
-    <transition name="fade" enter-active-class="animate__animated animate__fadeIn animate__faster" leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showContent = true">
-      <div v-if="showModal" class="overlay">
-        <div class="container">
-          <div class="row">
-            <div class="col-8 offset-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-              <transition name="fade" enter-active-class="animate__animated animate__fadeInDown animate__faster" leave-active-class="animate__animated animate__fadeOutUp animate__faster" @after-leave="showModal = false">
-                <div v-if="showContent" class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">The app says</h5>
-                    <p class="card-text">Message sent successful!</p>
-                    <button @click="showContent = false" class="btn btn-primary font-weight-bold">
-                      OK
-                    </button>
-                  </div>
-                </div>
-              </transition>
-            </div>
-          </div>
-        </div>
-      </div>
-    </transition>
 
     <transition enter-active-class="animate__animated animate__fadeInDown">
       <div v-if="showContact" class="container">
         <div class="row">
-          <div class="col-12 col-md-10 offset-md-1 col-lg-3 order-lg-1">
-            <p class="text-left d-none d-md-block notes">I am looking for new opportunities – especially front-end developer or web developer position. Please don’t hesitate to contact me with this form or my social media.</p>
-          </div>
           <div class="col-12 col-md-10 offset-md-1 col-lg-6 order-lg-0">
             <h1 class="font-weight-bold header d-none d-lg-block text-left mb-3">Contact Me</h1>
-            <form id="contact-form" @submit.prevent="process">
-              <div class="form-group">
-                <input type="text" class="form-control" name="name" v-model="name" placeholder="Your name" required />
+            <div class="container-md">
+              <!-- Contact Information Section -->
+              <div class="list">
+                <div class="list-item">
+                  <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'linkedin-in' }" />
+                  <a href="https://linkedin.com/in/liang-wu-b16952149" target="_blank">
+                    linkedin.com/in/liang-wu-b16952149
+                  </a>
+                </div>
+                <div class="list-item">
+                  <font-awesome-icon :icon="{ prefix: 'fa', iconName: 'phone-alt' }" />
+                  +1 3047106378
+                </div>
+                <div class="list-item">
+                  <font-awesome-icon :icon="{ prefix: 'fa', iconName: 'envelope' }" />
+                  liangwu@uwm.edu
+                </div>
               </div>
-              <div class="form-group">
-                <input type="email" class="form-control" name="email" v-model="email" placeholder="Your email" required />
-              </div>
-              <div class="form-group">
-                <textarea style="height: 150px;padding-top: 1rem;" class="form-control" name="message" v-model="message" placeholder="What can we help you with?" required />
-              </div>
-              <button type="submit" class="btn btn-primary font-weight-bold">
-                Submit
-              </button>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -53,7 +34,7 @@
 </template>
 
 <script>
-import Email from "../smtp";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   name: "contact",
@@ -66,6 +47,9 @@ export default {
       showContent: false,
       showContact: false,
     };
+  },
+  components: {
+    FontAwesomeIcon,
   },
   methods: {
     process: function () {
@@ -102,15 +86,6 @@ export default {
 
 <style lang="scss" scoped>
 .contact-wrap {
-  // Sass Color Module
-  // .demo{
-  //   width:100px;
-  //   height:100px;
-  //   //background: transparentize(#F05353, .5);
-  //   background: scale-color($green, $saturation: -20%);
-  //   // background: scale-color($green, $alpha: -30%)
-  // }
-
   height: calc(100% - 50px);
   position: absolute;
   left: 0;
@@ -135,6 +110,7 @@ export default {
     margin-top: 100px;
     border: 0;
     font-size: 0.9rem;
+
     .card-title {
       font-size: 0.9rem;
       font-weight: 700;
@@ -146,42 +122,44 @@ export default {
     color: $green;
   }
 
-  .row {
-    @include break-min(992px) {
-      padding-top: 140px;
-    }
-    form {
-      margin-top: 50px;
-      @include break-min(768px) {
-        margin-top: 30px;
+  .list {
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; // Space between each item
+
+    .list-item {
+      display: flex;
+      align-items: center; // Aligns icon and text vertically
+      gap: 10px; // Space between icon and text
+
+      a {
+        color: #0077b5; // LinkedIn blue color, customize as needed
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
-      text-align: left;
+
+      font-awesome-icon {
+        font-size: 1.2rem; // Adjust icon size
+        color: #555; // Default color for icons
+      }
     }
 
-    .form-control {
-      border: 0;
-      border-radius: 0;
-      background: $mid-gray;
-      color: #f5f5f5;
-      font-size: 0.8rem;
-      font-family: "Gotham Pro Regular";
-      padding: 1.25rem 0.75rem;
-      @include break-min(768px) {
-        padding: 1.5rem 0.75rem;
-      }
-      transition: outline 0.45s ease-in;
-      outline: 3px solid #3ecc2800;
-      &:focus {
-        outline: 3px solid #3ecc2888;
-        box-shadow: none;
-      }
-    }
+  }
+
+  .row {
+    padding-top: 140px;
   }
 
   .notes {
     margin-top: 130px;
     font-size: 0.9rem;
     color: $mid-gray;
+
     @include break-min(992px) {
       margin-top: 74px;
     }
