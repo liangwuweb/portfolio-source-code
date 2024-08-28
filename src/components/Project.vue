@@ -10,38 +10,46 @@
 
       <!-- Video card -->
       <div class="row justify-content-center justify-content-lg-start">
-        <card v-for="(project, index) in projects" @showModal="showModal(project)" :data-image="require('@/assets/' + project.image)" :key="project.name" :data-index="index">
-          <h1 slot="header">{{project.name}}</h1>
+        <card v-for="(project, index) in projects" @showModal="showModal(project)"
+          :data-image="require('@/assets/' + project.image)" :key="project.name" :data-index="index"
+          :status="project.status">
+          <h1 slot="header">{{ project.name }}</h1>
         </card>
       </div>
 
       <!-- Modal -->
-      <transition enter-active-class="animate__animated animate__fadeIn animate__faster" leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showVideoDialog = true">
+      <transition enter-active-class="animate__animated animate__fadeIn animate__faster"
+        leave-active-class="animate__animated animate__fadeOut animate__faster" @after-enter="showVideoDialog = true">
         <div v-if="showVideoModal" class="modal d-block" tabindex="-1" role="dialog" @click="closeModal($event)">
-          <transition enter-active-class="animate__animated animate__fadeInDown animate__faster" leave-active-class="animate__animated animate__fadeOutUp animate__faster">
+          <transition enter-active-class="animate__animated animate__fadeInDown animate__faster"
+            leave-active-class="animate__animated animate__fadeOutUp animate__faster">
             <div v-if="showVideoDialog" class="modal-dialog mb-5" role="document">
 
               <div class="modal-content">
                 <div class="modal-header">
                   <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" :class="{'d-none': videoSrc === null}" :src="videoSrc" id="video" allow="accelerometer; autoplay; encrypted-media" allowfullscreen></iframe>
-                    <img class="img-fluid image" :class="{'d-none': imageSrc === undefined}" :src="imageSrc != undefined ? require('@/assets/' + imageSrc) : ''">
+                    <iframe class="embed-responsive-item" :class="{ 'd-none': videoSrc === null }" :src="videoSrc"
+                      id="video" allow="accelerometer; autoplay; encrypted-media" allowfullscreen></iframe>
+                    <img class="img-fluid image" :class="{ 'd-none': imageSrc === undefined }"
+                      :src="imageSrc != undefined ? require('@/assets/' + imageSrc) : ''">
                   </div>
                   <div class="close" @click="hideModal" aria-label="Close">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15.322" height="15.322" viewBox="0 0 15.322 15.322">
                       <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(0.354 0.354)">
-                        <line id="Line_5" data-name="Line 5" x2="14.615" y2="14.615" fill="none" stroke="#f5f5f5" stroke-width="1" />
-                        <line id="Line_6" data-name="Line 6" x1="14.615" y2="14.615" fill="none" stroke="#f5f5f5" stroke-width="1" />
+                        <line id="Line_5" data-name="Line 5" x2="14.615" y2="14.615" fill="none" stroke="#f5f5f5"
+                          stroke-width="1" />
+                        <line id="Line_6" data-name="Line 6" x1="14.615" y2="14.615" fill="none" stroke="#f5f5f5"
+                          stroke-width="1" />
                       </g>
                     </svg>
                   </div>
                 </div>
                 <div class="modal-body text-left">
                   <h5 class="font-weight-bold modal-title mb-1 mt-4">
-                    {{projectTitle}}
+                    {{ projectTitle }}
                   </h5>
                   <p>
-                    {{description}}
+                    {{ description }}
                   </p>
 
                   <div @click="lanuchSite" class="btn btn-primary font-weight-bold">
@@ -51,7 +59,8 @@
                 </div>
                 <div class="modal-footer">
                   <div @click="goPrev" class="btn btn-primary btn-switch font-weight-bold">
-                    <font-awesome-icon :icon="{prefix: 'fa', iconName: 'arrow-left'}" transform="grow-4" :style="{marginRight: '10px', marginTop: '-2px'}" />
+                    <font-awesome-icon :icon="{ prefix: 'fa', iconName: 'arrow-left' }" transform="grow-4"
+                      :style="{ marginRight: '10px', marginTop: '-2px' }" />
                     PREV
                   </div>
 
@@ -59,7 +68,8 @@
 
                   <div @click="goNext" class="btn btn-primary btn-switch font-weight-bold">
                     NEXT
-                    <font-awesome-icon :icon="{prefix: 'fa', iconName: 'arrow-right'}" transform="grow-4" :style="{marginLeft: '10px', marginTop: '-2px'}" />
+                    <font-awesome-icon :icon="{ prefix: 'fa', iconName: 'arrow-right' }" transform="grow-4"
+                      :style="{ marginLeft: '10px', marginTop: '-2px' }" />
                   </div>
                 </div>
               </div>
@@ -173,7 +183,7 @@ export default {
     lanuchSite: function () {
       window.open(this.siteLink, "_blank");
     },
-    setPrevNext: function() {
+    setPrevNext: function () {
       // get the id of this project, using the id to find the index of the project in the projects array
       const projectId = this.projectId;
       const currentIndex = Number(
@@ -202,7 +212,7 @@ export default {
         if (maxIndex % 2) {
           // Odd
           // caculate middle number in the array, using n?阶加
-          
+
           // const termial = (maxIndex * (maxIndex + 1)) / 2;
           // const middleNum = termial / maxIndex;
           // console.log('middleNum: ' + middleNum);
@@ -245,7 +255,7 @@ export default {
 
       this.setPrevNext();
     },
-    goPrev: function() {
+    goPrev: function () {
       this.projectId = this.prev[0].id;
       this.projectTitle = this.prev[0].name;
       this.description = this.prev[0].description;
@@ -300,12 +310,15 @@ export default {
 
   .container-lg {
     margin-top: 87px;
+
     @include break-between(768px, 1199px) {
       margin-top: 100px;
     }
+
     @include break-min(1200px) {
       margin-top: 50px;
     }
+
     .header {
       color: $green;
       margin-left: 30px;
@@ -324,11 +337,13 @@ export default {
     .video-card {
       margin-bottom: 35px;
       cursor: pointer;
+
       @include break-min(992px) {
         &:nth-of-type(3n + 1) {
           margin-left: 8.3333333333%;
         }
       }
+
       @include break-min(768px) {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -338,12 +353,14 @@ export default {
       &:active {
         color: $green;
       }
+
       &:active path {
         stroke: $green;
       }
 
       .parent {
         overflow: hidden;
+
         &::before {
           content: "";
           width: 100%;
@@ -372,10 +389,12 @@ export default {
         -moz-transition: transform 0.5s;
         -o-transition: transform 0.5s;
         transition: transform 0.5s;
+
         @include break-min(768px) {
           background-size: 280%;
         }
       }
+
       @include break-min(992px) {
         &:hover .project {
           -ms-transform: scale(1.2);
@@ -383,6 +402,7 @@ export default {
           -webkit-transform: scale(1.2);
           -o-transform: scale(1.2);
           transform: scale(1.2);
+
           &::before {
             @include break-min(768px) {
               padding-top: 100%;
@@ -408,10 +428,12 @@ export default {
       span {
         font-size: 0.9rem;
         font-family: "Gotham Pro Medium";
+
         @include break-min(768px) {
           font-size: 1rem;
         }
       }
+
       svg {
         width: 6.34px;
         height: 12.78px;
@@ -432,11 +454,13 @@ export default {
 
     .modal-footer {
       padding: 0;
+
       .btn-switch {
         margin: 0;
         padding: 15px 0;
         width: 50%;
         font-size: 0.7rem;
+
         @include break-max(991px) {
           &:active {
             z-index: 999;
@@ -505,6 +529,4 @@ export default {
 //   [data-popover="second"] {
 //     @extend [data-popover="first"];
 //   }
-// }
-</style>
-
+// }</style>

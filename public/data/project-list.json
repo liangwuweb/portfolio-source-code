@@ -1,170 +1,366 @@
 [
   {
-    "id": 1,
-    "name": "Mend",
-    "image": "heroPanelBG3.jpg",
+    "id": 0,
+    "name": "JobTrack ",
+    "image": "github.png",
     "position": {
-      "sm": {"background-position": "center 40%"},
-      "md": {"background-position": "center center"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "100%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
     },
-    "description": "Developed the front-end of the entire project",
+    "description": "I am currently developing JobTrack, an application designed to efficiently manage job applications and utilize data analysis to provide insights into the job application process. This platform helps users organize, track, and analyze their job search data, ensuring they can easily manage application statuses, deadlines, and communications. The goal is to create a tool that not only simplifies the job application journey but also offers valuable insights, helping users make informed decisions and stay on top of their career goals.",
     "videoSrc": null,
-    "imageSrc": "Yoga2.png",
-    "siteLink": "https://www.mendstudio.com/"
+    "imageSrc": "github.png",
+    "siteLink": "https://github.com/liangwuweb/JobTrack",
+    "status": "developing"
+  },
+  {
+    "id": 1,
+    "name": "Intrusion Detection",
+    "image": "github.png",
+    "position": {
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
+    },
+    "size": {
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
+    },
+    "description": "This project is aimed at creating a system to detect and prevent cyber-attacks, specifically Distributed Denial of Service (DDoS) attacks, which can overwhelm and disrupt online services. We are using advanced machine learning techniques, including Naive Bayes and neural networks, to build a model that can accurately identify these attacks. To ensure our model is reliable, we use a method called 10-fold cross-validation, which helps us test the system thoroughly by training it on different parts of the data and then measuring how well it performs. This process helps us create a more accurate and dependable detection system that can adapt to new types of cyber threats, providing better protection for online services.",
+    "videoSrc": null,
+    "imageSrc": "github.png",
+    "siteLink": "https://github.com/liangwuweb/Intrusion_detection_ML",
+    "status": "completed"
   },
   {
     "id": 2,
-    "name": "Turf Tenders",
-    "image": "lawn-bg-1200.png",
+    "name": "Thomsen Group ",
+    "image": "github.png",
     "position": {
-      "sm": {"background-position": "center 40%"},
-      "md": {"background-position": "center center"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "250%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
     },
-    "description": "Developed the front-end of the entire project",
+    "description": "This project is a CMS built for Thomsen Group LLC, a company with nearly 80 years of experience in supplying high-quality stainless steel products. Thomsen Group specializes in manufacturing sanitary fittings, pumps, valves, filters, and custom stainless steel fabrication, serving the food, dairy, beverage, and pharmaceutical industries. The CMS, developed using the Laravel framework, enables them to efficiently manage and showcase their extensive product range, ensuring their website remains up-to-date, user-friendly, and reflective of their long-standing commitment to quality and service in the industry.",
     "videoSrc": null,
-    "imageSrc": "lawn-bg-1200.png",
-    "siteLink": "https://www.turftendersservice.com/"
+    "imageSrc": "github.png",
+    "siteLink": "https://github.com/liangwuweb/Thomsen",
+    "status": "developing"
   },
-    {
-      "id": 3,
-    "name": "Reflective",
-    "image": "iStock-1189913170.png",
+  {
+    "id": 3,
+    "name": "Stout International",
+    "image": "github.png",
     "position": {
-      "sm": {"background-position": "center 40%"},
-      "md": {"background-position": "center center"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "150%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
     },
-    "description": "Developed the front-end of the entire project",
+    "description": "This project is a web-based content management system (CMS) designed to facilitate cross-cultural communication among international students at the University of Wisconsin-Stout. The system focuses on providing a platform for students to share their experiences, address challenges, and build a supportive community through user-generated content (UGC). The CMS allows students to create, manage, and engage with posts, fostering interaction and knowledge sharing. Key features include a user dashboard for content management, an admin dashboard for overseeing the platform, and robust user authentication for secure access. This project aims to enhance the academic and social experience of international students by providing a dedicated space for them to connect and support each other.",
     "videoSrc": null,
-    "imageSrc": "iStock-1189913170.png",
-    "siteLink": "https://www.reflectivecontracting.com/"
+    "imageSrc": "github.png",
+    "siteLink": "https://github.com/liangwuweb/stout_intl",
+    "status": "completed"
   },
   {
     "id": 4,
-    "name": "Law Enforcement Memorial",
-    "image": "banner-image-3.png",
+    "name": "Portfolio",
+    "image": "github.png",
     "position": {
-      "sm": {"background-position": "center 40%"},
-      "md": {"background-position": "center top"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "300%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
     },
-    "description": "Developed the front-end of the entire project",
+    "description": "Welcome to my portfolio site, a dynamic showcase of my work and experience, meticulously crafted with Vue.js. This site is not just a static display of past projects—it's a constantly evolving platform that grows and adapts as I do. Whether you're here to explore my latest work, revisit a past project, or learn more about my journey in the tech world, you'll find that this portfolio reflects both my technical expertise and my commitment to continuous learning and improvement.",
     "videoSrc": null,
-    "imageSrc": "banner-image-3.png",
-    "siteLink": "https://www.wlem.com/"
+    "imageSrc": "github.png",
+    "siteLink": "https://github.com/liangwuweb/portfolio-source-code",
+    "status": "developing"
   },
-    {
-      "id": 5,
-    "name": "Kraverz",
-    "image": "kravez.png",
+  {
+    "id": 5,
+    "name": "Mend",
+    "image": "heroPanelBG3.jpg",
     "position": {
-      "sm": {"background-position": "center 40%"},
-      "md": {"background-position": "center center"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "100%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
     },
-    "description": "Homepage development.",
+    "description": "I developed a comprehensive Content Management System (CMS) for MEND, a wellness center based in Brookfield, Wisconsin, that serves a wide range of clients from neighboring communities such as Pewaukee, Waukesha, Elm Grove, Butler, West Allis, Wauwatosa, and New Berlin. This CMS was tailored to streamline MEND's operations, enabling them to efficiently manage their offerings in massage therapy, yoga, and corporate wellness. The system includes features like online scheduling, client management, and gift card purchases, providing a seamless experience for both the business and its clients. With the CMS, MEND can now effortlessly update content, manage appointments, and enhance their client engagement, ultimately improving their service delivery.",
     "videoSrc": null,
-    "imageSrc": "kravez2.png",
-    "siteLink": "https://www.kraverzcustard.com/"
+    "imageSrc": "Yoga2.png",
+    "siteLink": "https://www.mendstudio.com/",
+    "status": "completed"
   },
   {
     "id": 6,
-    "name": "CRYOFIT",
-    "image": "vit.jpg",
+    "name": "Turf Tenders",
+    "image": "lawn-bg-1200.png",
     "position": {
-      "sm": {"background-position": "center 40%"},
-      "md": {"background-position": "center center"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "100%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "250%"
+      }
     },
-    "description": "Update the front-end of homepage",
+    "description": "For Turf Tenders Inc., I developed a tailored Content Management System (CMS) that enhances their ability to deliver top-notch lawn care, snow removal, and landscaping services to residential and commercial clients across Wisconsin. The CMS is designed to streamline their service offerings, including lawn dethatching, weed control, mosquito control, lawn fertilization, and more. It also features robust scheduling and client management tools, enabling Turf Tenders to efficiently coordinate their snow removal services during the winter months. With a focus on user-friendly content updates, this system allows Turf Tenders to easily communicate with clients from Washington County, Ozaukee County, and surrounding areas, ensuring they can effectively meet the needs of their growing customer base.",
     "videoSrc": null,
-    "imageSrc": "vit-injections-img.jpg",
-    "siteLink": "https://ivboosters.com/"
+    "imageSrc": "lawn-bg-1200.png",
+    "siteLink": "https://www.turftendersservice.com/",
+    "status": "completed"
   },
   {
     "id": 7,
-    "name": "BGS Glass",
-    "image": "bgs.jpg",
+    "name": "Reflective",
+    "image": "iStock-1189913170.png",
     "position": {
-      "sm": {"background-position": "center 40%"},
-      "md": {"background-position": "center center"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "300%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "150%"
+      }
     },
-    "description": "Rebuild the homepage",
+    "description": "For Reflective, Inc., I developed a robust Content Management System (CMS) that empowers their business to effectively manage and showcase their commercial remodeling services across Wisconsin. Reflective, Inc. specializes in transforming commercial spaces—whether it’s offices, shops, or factories—into efficient, modern environments that meet the demands of Wisconsin’s thriving business community. The CMS was designed to highlight their extensive range of services, including commercial kitchen and bathroom remodels, complete building renovations, and design-build projects. With features that allow for easy updates and client communication, this system ensures Reflective, Inc. can continue to deliver exceptional remodeling solutions, optimize project workflows, and provide quick, complimentary quotes to their diverse client base across the state.",
     "videoSrc": null,
-    "imageSrc": "bgs.jpg",
-    "siteLink": "https://www.bgsglass.com/"
+    "imageSrc": "iStock-1189913170.png",
+    "siteLink": "https://www.reflectivecontracting.com/",
+    "status": "completed"
   },
-    
   {
     "id": 8,
-    "name": "Cinematography Site",
-    "image": "drew.jpg",
+    "name": "Law Enforcement Memorial",
+    "image": "banner-image-3.png",
     "position": {
-      "sm": {"background-position": "center top"},
-      "md": {"background-position": "31% top"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center top"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "200%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "300%"
+      }
     },
-    "description": "A client found me said that there are many features that he wants to improve with his existing website. So, I improved the responsive design and animation within the splash page. I also built an admin tool for the client to upload his video. This tool is written by PHP and MySQL. Finally, I improved the design of the film page to exactly match the client’s design.",
-    "videoSrc": "https://www.youtube.com/embed/sb_mJuHPgx8",
-    "siteLink": "https://drewhagenstudios.com/"
+    "description": "For the Wisconsin Law Enforcement Memorial, Inc. (WLEM), I developed a specialized Content Management System (CMS) designed to support their mission of honoring Wisconsin law enforcement officers who have died in the line of duty. Established in 1990, WLEM is a non-profit organization dedicated to building and maintaining a monument, organizing an annual memorial ceremony at the State Capitol, and providing support to law enforcement agencies, officers, and survivors. The CMS I created allows WLEM to effectively manage their events, share information, and engage with the community. It features tools for updating content, managing volunteer efforts, and displaying impactful photo galleries from past ceremonies. This system ensures that WLEM can continue to honor fallen officers and provide a platform for individuals, businesses, and communities to express their appreciation for law enforcement.",
+    "videoSrc": null,
+    "imageSrc": "banner-image-3.png",
+    "siteLink": "https://www.wlem.com/",
+    "status": "completed"
   },
   {
     "id": 9,
-     "name": "Portfolio Site",
-    "image": "wheel.jpg",
+    "name": "Kraverz",
+    "image": "kravez.png",
     "position": {
-      "sm": {"background-position": "center center"},
-      "md": {"background-position": "50% 10%"}
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "200%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
     },
-    "description": "An interactive website built for an educator/artist. The project shows off his portfolio as two different roles. I used a different navigation layout in this project, and there are many interactive elements. The technology stacks include jQuery, JavaScript, HTML, and CSS.",
-    "videoSrc": "https://www.youtube.com/embed/h8oY4oqY9bo",
-    "siteLink": "https://liangwuweb.github.io/portfolio/JohnnySite/index.html"
+    "description": "For Kraverz Custard, I developed a user-friendly Content Management System (CMS) that enhances their ability to showcase their delicious offerings and engage with customers in Menomonee Falls. Known for serving the best American food with only the highest quality ingredients, Kraverz Custard allows customers to build their own burgers, enjoy cheese curds, or indulge in a variety of specialty sandwiches, gyros, and Friday fish fries. The CMS I created enables Kraverz Custard to easily update their daily specials, soups, and the flavor of the day, ensuring that their customers are always informed about the latest offerings. This system not only streamlines their operations but also enhances the overall dining experience by providing a seamless, up-to-date interface for customers to explore the menu and daily features.",
+    "videoSrc": null,
+    "imageSrc": "kravez2.png",
+    "siteLink": "https://www.kraverzcustard.com/",
+    "status": "completed"
   },
   {
     "id": 10,
+    "name": "CRYOFIT",
+    "image": "vit.jpg",
+    "position": {
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
+    },
+    "size": {
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "100%"
+      }
+    },
+    "description": "For CryoFit, I developed the front-end of their website, designed to highlight their commitment to wellness and natural treatments. CryoFit stands out by offering services that focus on slowing down aging, reducing inflammation, and enhancing overall well-being. The website I created allows users to easily navigate through their offerings, including pain management, anti-aging treatments, and health-boosting vitamin and weight loss programs. To make these services accessible, CryoFit also provides flexible payment options, including Cherry, Care Credit, and HSA cards. The front-end design ensures that CryoFit's dedication to helping clients achieve their wellness goals is clearly communicated, providing a user-friendly experience that encourages engagement and trust.",
+    "videoSrc": null,
+    "imageSrc": "vit-injections-img.jpg",
+    "siteLink": "https://ivboosters.com/",
+    "status": "completed"
+  },
+  {
+    "id": 11,
+    "name": "BGS Glass",
+    "image": "bgs.jpg",
+    "position": {
+      "sm": {
+        "background-position": "center 40%"
+      },
+      "md": {
+        "background-position": "center center"
+      }
+    },
+    "size": {
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "300%"
+      }
+    },
+    "description": "For BGS Glass Service, I rebuilt their front-end to modernize and enhance the user experience for their customers across Southeastern Wisconsin. BGS Glass Service is a family-owned and operated business with over two generations of experience in providing high-quality glass glazing, window replacement, and custom glass installations for both residential and commercial properties. The updated front-end showcases their extensive portfolio, including custom interior and exterior glass projects such as shower doors, windows, glass stair walls, storefront doors, and glass walls. The new design not only reflects their expertise and long-standing reputation in the greater Milwaukee area but also makes it easier for customers to explore their services and get in touch for their glass installation needs.",
+    "videoSrc": null,
+    "imageSrc": "bgs.jpg",
+    "siteLink": "https://www.bgsglass.com/",
+    "status": "completed"
+  },
+  {
+    "id": 12,
+    "name": "Portfolio Site",
+    "image": "wheel.jpg",
+    "position": {
+      "sm": {
+        "background-position": "center center"
+      },
+      "md": {
+        "background-position": "50% 10%"
+      }
+    },
+    "size": {
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "200%"
+      }
+    },
+    "description": "An interactive website built for an educator/artist. The project shows off his portfolio as two different roles. I used a different navigation layout in this project, and there are many interactive elements. The technology stacks include jQuery, JavaScript, HTML, and CSS.",
+    "videoSrc": null,
+    "imageSrc": "dynamic.gif",
+    "siteLink": "https://liangwuweb.github.io/portfolio/JohnnySite/index.html",
+    "status": "completed"
+  },
+  {
+    "id": 13,
     "name": "Interactive Map",
     "image": "map.jpg",
     "position": {
-      "sm": {"background-position": "center center"},
-      "md": {"background-position": "10% 40%"}
+      "sm": {
+        "background-position": "center center"
+      },
+      "md": {
+        "background-position": "10% 40%"
+      }
     },
     "size": {
-      "sm": {"background-size": "100%"},
-      "md": {"background-size": "250%"}
+      "sm": {
+        "background-size": "100%"
+      },
+      "md": {
+        "background-size": "250%"
+      }
     },
     "description": "An interactive map created to present a user interface concept. Users can interact with a map by choosing different transportation options. Also, they can toggle the night mode. I used jQuery, JavaScript, HTML, and CSS in this project.",
-    "videoSrc": "https://www.youtube.com/embed/zXg53NdLRJA",
-    "siteLink": "https://liangwuweb.github.io/portfolio/Map/index.html"
+    "videoSrc": null,
+    "imageSrc": "dynamic.gif",
+    "siteLink": "https://liangwuweb.github.io/portfolio/Map/index.html",
+    "status": "completed"
   }
 ]
